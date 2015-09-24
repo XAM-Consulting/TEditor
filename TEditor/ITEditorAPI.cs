@@ -4,6 +4,8 @@ namespace TEditor
 {
 	internal interface ITEditorAPI
 	{
+		void AlignCenter();
+
 		void AlignFull ();
 
 		void AlignLeft ();
@@ -28,7 +30,11 @@ namespace TEditor
 
 		void Paragraph ();
 
+		void QuickLink();
+
 		void RemoveFormat ();
+
+		void Redo();
 
 		void SetBold ();
 
@@ -42,7 +48,7 @@ namespace TEditor
 
 		void SetOutdent ();
 
-		void SetStrikethrough ();
+		void SetStrikeThrough ();
 
 		void SetSubscript ();
 
@@ -52,11 +58,18 @@ namespace TEditor
 
 		void SetUnorderedList ();
 
+		void SetPlatformAsIOS ();
+		
+		void SetPlatformAsDroid ();
+
 		void UpdateHTML ();
 
-		void SetPlatformAsIOS ();
+		void Undo();
 
-		void SetPlatformAsDroid ();
+		void SetFooterHeight(double height);
+
+		void SetContentHeight(double height);
+
 	}
 }
 

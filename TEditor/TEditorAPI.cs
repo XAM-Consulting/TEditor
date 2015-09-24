@@ -52,7 +52,7 @@ namespace TEditor
 		public void InsertHTML (string html)
 		{
 			string cleanedHTML = RemoveQuotesFromHTML (html);
-			string trigger =string.Format ("zss_editor.insertHTML(\"{0}\");", cleanedHTML);
+			string trigger = string.Format ("zss_editor.insertHTML(\"{0}\");", cleanedHTML);
 			_javaScriptEvaluatFunc.Invoke (trigger);
 		}
 
@@ -203,6 +203,42 @@ namespace TEditor
 		public void SetPlatformAsDroid ()
 		{
 			string trigger = @"zss_editor.setPlatformAsDroid();";
+			_javaScriptEvaluatFunc.Invoke (trigger);
+		}
+
+		public void QuickLink ()
+		{
+			string trigger = @"zss_editor.quickLink();";
+			_javaScriptEvaluatFunc.Invoke (trigger);
+		}
+
+		public void Redo ()
+		{
+			string trigger = @"zss_editor.redo();";
+			_javaScriptEvaluatFunc.Invoke (trigger);
+		}
+
+		public void SetStrikeThrough ()
+		{
+			string trigger = @"zss_editor.setStrikeThrough();";
+			_javaScriptEvaluatFunc.Invoke (trigger);
+		}
+
+		public void Undo ()
+		{
+			string trigger = @"zss_editor.undo();";
+			_javaScriptEvaluatFunc.Invoke (trigger);
+		}
+
+		public void SetFooterHeight (double height)
+		{
+			string trigger = string.Format ("zss_editor.setFooterHeight(\"{0:F}\");", height);
+			_javaScriptEvaluatFunc.Invoke (trigger);
+		}
+
+		public void SetContentHeight (double height)
+		{
+			string trigger = string.Format ("zss_editor.contentHeight = {0:F};", height);
 			_javaScriptEvaluatFunc.Invoke (trigger);
 		}
 	}
