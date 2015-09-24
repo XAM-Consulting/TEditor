@@ -109,11 +109,84 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Controls\TEditorWebView.cs" />
     <Compile Include="Controls\TEditorViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ZSSbgcolor.png" />
+    <BundleResource Include="Resources\ZSSbgcolor%402x.png" />
+    <BundleResource Include="Resources\ZSSbold.png" />
+    <BundleResource Include="Resources\ZSSbold%402x.png" />
+    <BundleResource Include="Resources\ZSScenterjustify.png" />
+    <BundleResource Include="Resources\ZSScenterjustify%402x.png" />
+    <BundleResource Include="Resources\ZSSclearstyle.png" />
+    <BundleResource Include="Resources\ZSSclearstyle%402x.png" />
+    <BundleResource Include="Resources\ZSSforcejustify.png" />
+    <BundleResource Include="Resources\ZSSforcejustify%402x.png" />
+    <BundleResource Include="Resources\ZSSh1.png" />
+    <BundleResource Include="Resources\ZSSh1%402x.png" />
+    <BundleResource Include="Resources\ZSSh2.png" />
+    <BundleResource Include="Resources\ZSSh2%402x.png" />
+    <BundleResource Include="Resources\ZSSh3.png" />
+    <BundleResource Include="Resources\ZSSh3%402x.png" />
+    <BundleResource Include="Resources\ZSSh4.png" />
+    <BundleResource Include="Resources\ZSSh4%402x.png" />
+    <BundleResource Include="Resources\ZSSh5.png" />
+    <BundleResource Include="Resources\ZSSh5%402x.png" />
+    <BundleResource Include="Resources\ZSSh6.png" />
+    <BundleResource Include="Resources\ZSSh6%402x.png" />
+    <BundleResource Include="Resources\ZSShorizontalrule.png" />
+    <BundleResource Include="Resources\ZSShorizontalrule%402x.png" />
+    <BundleResource Include="Resources\ZSSimage.png" />
+    <BundleResource Include="Resources\ZSSimage%402x.png" />
+    <BundleResource Include="Resources\ZSSindent.png" />
+    <BundleResource Include="Resources\ZSSindent%402x.png" />
+    <BundleResource Include="Resources\ZSSinsertkeyword.png" />
+    <BundleResource Include="Resources\ZSSinsertkeyword%402x.png" />
+    <BundleResource Include="Resources\ZSSitalic.png" />
+    <BundleResource Include="Resources\ZSSitalic%402x.png" />
+    <BundleResource Include="Resources\ZSSkeyboard.png" />
+    <BundleResource Include="Resources\ZSSkeyboard%402x.png" />
+    <BundleResource Include="Resources\ZSSleftjustify.png" />
+    <BundleResource Include="Resources\ZSSleftjustify%402x.png" />
+    <BundleResource Include="Resources\ZSSlink.png" />
+    <BundleResource Include="Resources\ZSSlink%402x.png" />
+    <BundleResource Include="Resources\ZSSorderedlist.png" />
+    <BundleResource Include="Resources\ZSSorderedlist%402x.png" />
+    <BundleResource Include="Resources\ZSSoutdent.png" />
+    <BundleResource Include="Resources\ZSSoutdent%402x.png" />
+    <BundleResource Include="Resources\ZSSparagraph.png" />
+    <BundleResource Include="Resources\ZSSparagraph%402x.png" />
+    <BundleResource Include="Resources\ZSSpicker.png" />
+    <BundleResource Include="Resources\ZSSpicker%402x.png" />
+    <BundleResource Include="Resources\ZSSquicklink.png" />
+    <BundleResource Include="Resources\ZSSquicklink%402x.png" />
+    <BundleResource Include="Resources\ZSSredo.png" />
+    <BundleResource Include="Resources\ZSSredo%402x.png" />
+    <BundleResource Include="Resources\ZSSrightjustify.png" />
+    <BundleResource Include="Resources\ZSSrightjustify%402x.png" />
+    <BundleResource Include="Resources\ZSSstrikethrough.png" />
+    <BundleResource Include="Resources\ZSSstrikethrough%402x.png" />
+    <BundleResource Include="Resources\ZSSsubscript.png" />
+    <BundleResource Include="Resources\ZSSsubscript%402x.png" />
+    <BundleResource Include="Resources\ZSSsuperscript.png" />
+    <BundleResource Include="Resources\ZSSsuperscript%402x.png" />
+    <BundleResource Include="Resources\ZSStable.png" />
+    <BundleResource Include="Resources\ZSStable%402x.png" />
+    <BundleResource Include="Resources\ZSStextcolor.png" />
+    <BundleResource Include="Resources\ZSStextcolor%402x.png" />
+    <BundleResource Include="Resources\ZSSunderline.png" />
+    <BundleResource Include="Resources\ZSSunderline%402x.png" />
+    <BundleResource Include="Resources\ZSSundo.png" />
+    <BundleResource Include="Resources\ZSSundo%402x.png" />
+    <BundleResource Include="Resources\ZSSunlink.png" />
+    <BundleResource Include="Resources\ZSSunlink%402x.png" />
+    <BundleResource Include="Resources\ZSSunorderedlist.png" />
+    <BundleResource Include="Resources\ZSSunorderedlist%402x.png" />
+    <BundleResource Include="Resources\ZSSviewsource.png" />
+    <BundleResource Include="Resources\ZSSviewsource%402x.png" />
   </ItemGroup>
 </Project>

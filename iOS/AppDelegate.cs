@@ -23,7 +23,7 @@ namespace TEditor.iOS
 
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start();
+			Xamarin.Calabash.Start ();
 			#endif
 
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
@@ -36,15 +36,20 @@ namespace TEditor.iOS
 			vc.View.BackgroundColor = UIColor.White;
 
 
-			var button = new UIButton{
-				Frame = new CGRect(60,200,100,60),
+			var button = new UIButton {
+				Frame = new CGRect (60, 200, 100, 60),
 			};
-			button.SetTitle("Editor Html", UIControlState.Normal);
+			button.SetTitle ("Editor Html", UIControlState.Normal);
 			button.SetTitleColor (UIColor.Black, UIControlState.Normal);
 			button.TouchUpInside += (object sender, System.EventArgs e) => {
-				nv.PushViewController(new TEditorViewController(),true);
+				var tvc = new TEditorViewController ();
+				ToolbarBuilder builder = new ToolbarBuilder().AddBasic();
+				tvc.BuildToolbar(builder);
+
+				tvc.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>ZSSRichTextEditor</strong> by <a title=\"Zed Said\" href=\"http://www.zedsaid.com\">Zed Said Studio</a></p>");
+				nv.PushViewController (tvc, true);
 			};
-			vc.View.AddSubview(button);
+			vc.View.AddSubview (button);
 			Window.RootViewController = nv;
 
 
