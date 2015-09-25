@@ -72,8 +72,6 @@ namespace TEditor.iOS
 			_webView.BackgroundColor = UIColor.White;
 			_webView.ScrollView.Bounces = false;
 
-			//_webView.InputAccessoryView = new UIView();
-
 			this.Add (_webView);
 		}
 
@@ -232,6 +230,7 @@ namespace TEditor.iOS
 			if (notification.Name == UIKeyboard.WillShowNotification) {
 				
 				UIView.Animate (duration, 0, animationOptions, () => {
+
 					CGRect frame = _toolbarHolder.Frame;
 					frame.Y = this.View.Frame.Height - (nfloat)(_keyboardHeight + sizeOfToolbar);
 					_toolbarHolder.Frame = frame;
@@ -240,12 +239,7 @@ namespace TEditor.iOS
 					CGRect editorFrame = _webView.Frame;
 					editorFrame.Height = this.View.Frame.Height - (nfloat)(_keyboardHeight + sizeOfToolbar);
 					_webView.Frame = editorFrame;
-					_webView.ScrollView.ContentInset = UIEdgeInsets.Zero;
-					_webView.ScrollView.ScrollIndicatorInsets = UIEdgeInsets.Zero;
-
-					_richTextEditor.SetFooterHeight (_keyboardHeight - 8);
-					_richTextEditor.SetContentHeight (_webView.Frame.Height);
-
+		
 				}, null);
 			} else {
 				UIView.Animate (duration, 0, animationOptions, () => {
@@ -256,8 +250,6 @@ namespace TEditor.iOS
 					CGRect editorFrame = _webView.Frame;
 					editorFrame.Height = this.View.Frame.Height;
 					_webView.Frame = editorFrame;
-					_webView.ScrollView.ContentInset = UIEdgeInsets.Zero;
-					_webView.ScrollView.ScrollIndicatorInsets = UIEdgeInsets.Zero;
 
 				}, null);
 			}
@@ -265,31 +257,16 @@ namespace TEditor.iOS
 
 		void KeyboardDidFrame (NSNotification note)
 		{
-			// Locate non-UIWindow.
-			UIWindow keyboardWindow = null;
-			foreach (UIWindow testWindow in UIApplication.SharedApplication.Windows) {
-				if (testWindow is UIWindow) {
-					if (!testWindow.Hidden)
-						keyboardWindow = testWindow;
-					//break;
-				}
-			}
 
-			// Locate UIWebFormView.
-			foreach (UIView possibleFormView in keyboardWindow.Subviews) {
-				if (possibleFormView.Description.Contains ("UIInputSetContainerView")) {
-					foreach (UIView hostviewWhichIsPossibleFormView in possibleFormView.Subviews) {
-						if (hostviewWhichIsPossibleFormView.Description.Contains ("UIInputSetHostView")) {
-							var frame = hostviewWhichIsPossibleFormView.Frame;
-							var bounds = hostviewWhichIsPossibleFormView.Bounds;
-							foreach (UIView subviewWhichIsPossibleFormView in hostviewWhichIsPossibleFormView.Subviews) {
-								if (subviewWhichIsPossibleFormView.Description.Contains ("UIWebFormAccessory")) {									
-									_keyboardHeight -= subviewWhichIsPossibleFormView.Frame.Height;;
-									subviewWhichIsPossibleFormView.RemoveFromSuperview ();
-									break;
-								}
-							}
-							break;
+			foreach (UIView possibleFormView in _webView.ScrollView.Subviews) {
+				if (possibleFormView.Description.Contains ("UIWebBrowserView")) {
+
+					var response = possibleFormView as UIResponder;
+					if (response != null) {
+						var inputAccessoryView = response.InputAccessoryView;
+						if (inputAccessoryView != null) {
+							_keyboardHeight -= inputAccessoryView.Frame.Height;
+							inputAccessoryView.RemoveFromSuperview ();
 						}
 					}
 					break;
