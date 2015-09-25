@@ -12,8 +12,6 @@ namespace TEditor.Droid
 	[Activity (Label = "TEditor.Droid", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
-
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -26,7 +24,11 @@ namespace TEditor.Droid
 			Button button = FindViewById<Button> (Resource.Id.myButton);
 			
 			button.Click += delegate {
-				this.StartActivity(typeof(TEditorActivity));
+				var tActivity = new Intent (this, typeof(TEditorActivity));
+//				tActivity.PutExtra ("ToolbarStyle", "Basic");
+				tActivity.PutExtra ("ToolbarStyle", "Standard");
+//				tActivity.PutExtra ("ToolbarStyle", "All");
+				StartActivity (tActivity);
 			};
 		}
 	}

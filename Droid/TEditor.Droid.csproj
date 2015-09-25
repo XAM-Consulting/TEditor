@@ -55,6 +55,7 @@
     <Compile Include="Controls\TEditorWebView.cs" />
     <Compile Include="Controls\TEditorActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Controls\LinearLayoutDetectsSoftKeyboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -70,6 +71,42 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\TEditorActivity.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSbgcolor.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSbold.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSScenterjustify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSclearstyle.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSforcejustify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSh1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSh2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSh3.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSh4.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSh5.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSh6.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSShorizontalrule.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSimage.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSindent.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSinsertkeyword.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSitalic.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSkeyboard.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSleftjustify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSlink.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSorderedlist.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSoutdent.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSparagraph.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSpicker.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSquicklink.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSredo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSrightjustify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSstrikethrough.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSsubscript.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSsuperscript.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSStable.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSStextcolor.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSunderline.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSundo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSunlink.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSunorderedlist.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ZSSviewsource.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

@@ -74,9 +74,11 @@ namespace TEditor.Droid
 		}
 	}
 
-	public class TEditorWebView :WebView , ITEditorAPI
+	public class TEditorWebView : WebView
 	{
 		TEditor _richTextEditor;
+
+		public TEditor RichTextEditor { get { return _richTextEditor; } }
 		//WebView _webView;
 
 		public TEditorWebView (Context context) : base (context)
@@ -96,7 +98,7 @@ namespace TEditor.Droid
 				return result.Result;
 			});
 			this.LoadResource ();
-			
+
 		}
 
 		public TEditorWebView (Context context, IAttributeSet attrs) : base (context, attrs)
@@ -126,146 +128,6 @@ namespace TEditor.Droid
 			_richTextEditor.InternalHTML = html;
 			_richTextEditor.UpdateHTML ();
 		}
-
-		#region IZSSRichTextEditorAPI implementation
-
-		public void AlignFull ()
-		{
-			_richTextEditor.AlignFull ();
-		}
-
-		public void AlignLeft ()
-		{
-			_richTextEditor.AlignLeft ();
-		}
-
-		public void AlignRight ()
-		{
-			_richTextEditor.AlignRight ();
-		}
-
-		public string GetHTML ()
-		{
-			return _richTextEditor.GetHTML ();
-		}
-
-		public void Heading1 ()
-		{
-			_richTextEditor.Heading1 ();
-		}
-
-		public void Heading2 ()
-		{
-			_richTextEditor.Heading2 ();
-		}
-
-		public void Heading3 ()
-		{
-			_richTextEditor.Heading3 ();
-		}
-
-		public void Heading4 ()
-		{
-			_richTextEditor.Heading4 ();
-		}
-
-		public void Heading5 ()
-		{
-			_richTextEditor.Heading5 ();
-		}
-
-		public void Heading6 ()
-		{
-			_richTextEditor.Heading6 ();
-		}
-
-		public void InsertHTML (string html)
-		{
-			_richTextEditor.InsertHTML (html);
-		}
-
-		public void Paragraph ()
-		{
-			_richTextEditor.Paragraph ();
-		}
-
-		public void RemoveFormat ()
-		{
-			_richTextEditor.RemoveFormat ();
-		}
-
-		public void SetBold ()
-		{
-			_richTextEditor.SetBold ();
-		}
-
-		public void SetHR ()
-		{
-			_richTextEditor.SetHR ();
-		}
-
-		public void SetIndent ()
-		{
-			_richTextEditor.SetIndent ();
-		}
-
-		public void SetItalic ()
-		{
-			_richTextEditor.SetItalic ();
-		}
-
-		public void SetOrderedList ()
-		{
-			_richTextEditor.SetOrderedList ();
-		}
-
-		public void SetOutdent ()
-		{
-			_richTextEditor.SetOutdent ();
-		}
-
-		public void SetStrikethrough ()
-		{
-			_richTextEditor.SetStrikethrough ();
-		}
-
-		public void SetSubscript ()
-		{
-			_richTextEditor.SetSubscript ();
-		}
-
-		public void SetSuperscript ()
-		{
-			_richTextEditor.SetSuperscript ();
-		}
-
-		public void SetUnderline ()
-		{
-			_richTextEditor.SetUnderline ();
-		}
-
-		public void SetUnorderedList ()
-		{
-			_richTextEditor.SetUnorderedList ();
-		}
-
-		public void UpdateHTML ()
-		{
-			_richTextEditor.UpdateHTML ();
-		}
-
-
-		public void SetPlatformAsIOS ()
-		{
-			_richTextEditor.SetPlatformAsIOS ();
-		}
-
-		public void SetPlatformAsDroid ()
-		{
-			_richTextEditor.SetPlatformAsDroid ();
-		}
-
-		#endregion
 
 	}
 }
