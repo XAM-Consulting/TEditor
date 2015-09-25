@@ -43,10 +43,10 @@ namespace TEditor.iOS
 			button.SetTitleColor (UIColor.Black, UIControlState.Normal);
 			button.TouchUpInside += (object sender, System.EventArgs e) => {
 				var tvc = new TEditorViewController ();
-				ToolbarBuilder builder = new ToolbarBuilder().AddBasic();
+				ToolbarBuilder builder = new ToolbarBuilder().AddStandard();
 				tvc.BuildToolbar(builder);
 
-				tvc.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>ZSSRichTextEditor</strong> by <a title=\"Zed Said\" href=\"http://www.zedsaid.com\">Zed Said Studio</a></p>");
+				tvc.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
 				nv.PushViewController (tvc, true);
 			};
 			vc.View.AddSubview (button);

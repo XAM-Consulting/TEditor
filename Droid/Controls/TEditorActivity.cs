@@ -45,7 +45,7 @@ namespace TEditor.Droid
 				break;
 			}
 
-			_editorWebView.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>ZSSRichTextEditor</strong> by <a title=\"Zed Said\" href=\"http://www.zedsaid.com\">Zed Said Studio</a></p>");
+			_editorWebView.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
 
 		}
 
@@ -71,8 +71,7 @@ namespace TEditor.Droid
 		}
 
 		public void HandleSoftKeyboardShwon (bool shown, int newHeight)
-		{
-			Console.WriteLine (string.Format ("Keyboard is shown {0} height is {1}", shown, newHeight));
+		{			
 			if (shown) {
 				_toolbarLayout.Visibility = Android.Views.ViewStates.Visible;
 				int toolbarHeight = _toolbarLayout.MeasuredHeight == 0 ? ToolbarFixHeight : _toolbarLayout.MeasuredHeight;
