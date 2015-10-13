@@ -52,7 +52,10 @@ namespace TEditor.iOS
 		{
 			_richTextEditor = new TEditor ();
 			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {
-				return _webView.EvaluateJavascript (input);
+				
+				string res =  _webView.EvaluateJavascript (input);
+				Console.WriteLine("Input is "+ input +"result is "+res);
+				return res;
 			});				
 
 		}
@@ -102,7 +105,7 @@ namespace TEditor.iOS
 			{
 				if (!IsIpad())
 				{
-					this.NavigationController.PopViewController(true);
+					_colorPickerViewController.NavigationController.PopViewController(true);
 				}
 				else
 				{
@@ -114,7 +117,7 @@ namespace TEditor.iOS
 			{
 				if (!IsIpad())
 				{
-					this.NavigationController.PopViewController(true);
+					_colorPickerViewController.NavigationController.PopViewController(true);
 				}
 				else
 				{
@@ -129,8 +132,6 @@ namespace TEditor.iOS
 				if (!IsIpad())
 				{
 					this.NavigationController.PushViewController(_colorPickerViewController, true);
-//					var navController = new UINavigationController(_colorPickerViewController);
-//					PresentViewController(navController, true, null);
 				}
 				else
 				{

@@ -244,11 +244,15 @@ namespace TEditor
 
 		public Action LaunchColorPicker { get; set; }
 
-		public void SetTextColor (int R, int G, int B)
-		{	
+		public void PrepareInsert()
+		{
 			string trigger = "zss_editor.prepareInsert();";
 			_javaScriptEvaluatFunc.Invoke (trigger);
-			trigger = string.Format ("zss_editor.setTextColor(\"#{0:x2}{1:x2}{2:x2}\");", R,G,B);
+		}
+
+		public void SetTextColor (int R, int G, int B)
+		{	
+			string trigger = string.Format ("zss_editor.setTextColor(\"#{0:x2}{1:x2}{2:x2}\");", R,G,B);
 			_javaScriptEvaluatFunc.Invoke (trigger);
 		}
 

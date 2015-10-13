@@ -72,6 +72,8 @@ namespace TEditor
 
 		Action LaunchColorPicker { get; set; }
 
+		void PrepareInsert();
+
 		void SetTextColor (int R, int G, int B);
 	}
 }

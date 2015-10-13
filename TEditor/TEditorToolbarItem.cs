@@ -428,7 +428,10 @@ namespace TEditor
 				Label = "textcolor",
 				ClickFunc = (input) => {
 					if (input.LaunchColorPicker != null)
+					{
+						input.PrepareInsert();
 						input.LaunchColorPicker.Invoke ();
+					}
 					return string.Empty;
 				}
 			});
