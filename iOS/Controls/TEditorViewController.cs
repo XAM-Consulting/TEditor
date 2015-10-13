@@ -3,6 +3,7 @@ using UIKit;
 using CoreGraphics;
 using System.Collections.Generic;
 using Foundation;
+using PopColorPicker.iOS;
 
 namespace TEditor.iOS
 {
@@ -20,10 +21,6 @@ namespace TEditor.iOS
 			string urlString = request.Url.AbsoluteString;
 			if (navigationType == UIWebViewNavigationType.LinkClicked)
 				return false;
-			//			else if (urlString.Contains ("scroll://")) {
-			//				int position; 
-			//				if(int.TryParse(urlString.Replace ("scroll://", ""),out position);
-			//			}
 			return true;
 		}
 
@@ -48,6 +45,8 @@ namespace TEditor.iOS
 		UIBarButtonItem _keyboardItem;
 		List<UIBarButtonItem> _uiToolbarItems;
 		double _keyboardHeight;
+		PopColorPickerViewController _colorPickerViewController;
+		UIPopoverController _popoverController;
 
 		public TEditorViewController () : base ()
 		{
@@ -95,6 +94,54 @@ namespace TEditor.iOS
 			_toolbarScroll.AutoresizingMask = _toolbar.AutoresizingMask;
 		}
 
+		void AddColorPickerControl()
+		{
+			_colorPickerViewController = new PopColorPickerViewController();
+
+			_colorPickerViewController.CancelButton.Clicked += (object sender, EventArgs e) =>
+			{
+				if (!IsIpad())
+				{
+					this.NavigationController.PopViewController(true);
+				}
+				else
+				{
+					_popoverController.Dismiss(true);
+				}
+			};
+
+			_colorPickerViewController.DoneButton.Clicked += (object sender, EventArgs e) =>
+			{
+				if (!IsIpad())
+				{
+					this.NavigationController.PopViewController(true);
+				}
+				else
+				{
+					_popoverController.Dismiss(true);
+				}
+				nfloat r, g, b, a;
+				_colorPickerViewController.SelectedColor.GetRGBA(out r, out g,out b, out a);
+				_richTextEditor.SetTextColor((int)(r*255), (int)(g*255), (int)(b*255));
+			};
+
+			_richTextEditor.LaunchColorPicker = () => {
+				if (!IsIpad())
+				{
+					this.NavigationController.PushViewController(_colorPickerViewController, true);
+//					var navController = new UINavigationController(_colorPickerViewController);
+//					PresentViewController(navController, true, null);
+				}
+				else
+				{
+					var navController = new UINavigationController(_colorPickerViewController);
+
+					_popoverController = new UIPopoverController(navController);
+					_popoverController.PresentFromRect(_toolbarHolder.Frame, View, UIPopoverArrowDirection.Down, true);
+				}
+			};
+		}
+
 		void LayoutToolBarHolder ()
 		{
 			UIToolbar backgroundToolbar = new UIToolbar () { 
@@ -121,7 +168,7 @@ namespace TEditor.iOS
 				_keyboardItem = new UIBarButtonItem (UIImage.FromFile ("ZSSkeyboard.png"), UIBarButtonItemStyle.Plain, delegate(object sender, EventArgs e) {
 					this.View.EndEditing (true);
 				});
-				//_keyboardItem.Clicked+=dismissKeyboard
+
 				keyboardToolbar.Items = new []{ _keyboardItem };
 
 				_toolbarHolder.AddSubview (toolbarCropper);
@@ -181,6 +228,8 @@ namespace TEditor.iOS
 
 			StyleToolbar ();
 
+			AddColorPickerControl ();
+
 			LayoutToolBarHolder ();
 
 			LoadResource ();
@@ -188,22 +237,25 @@ namespace TEditor.iOS
 			_richTextEditor.UpdateHTML ();
 		}
 
+		NSObject _keyboardDidFrameToken;
+		NSObject _keyboardWillShowToken;
+		NSObject _keyboardWillHideToken;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.DidChangeFrameNotification, KeyboardDidFrame);
-			NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.WillShowNotification, KeyboardWillShowOrHide);
-			NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.WillHideNotification, KeyboardWillShowOrHide);
+			_keyboardDidFrameToken = NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.DidChangeFrameNotification, KeyboardDidFrame);
+			_keyboardWillShowToken = NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.WillShowNotification, KeyboardWillShowOrHide);
+			_keyboardWillHideToken = NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.WillHideNotification, KeyboardWillShowOrHide);
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
 
-			NSNotificationCenter.DefaultCenter.RemoveObserver (UIKeyboard.DidChangeFrameNotification);
-			NSNotificationCenter.DefaultCenter.RemoveObserver (UIKeyboard.WillShowNotification);
-			NSNotificationCenter.DefaultCenter.RemoveObserver (UIKeyboard.WillHideNotification);
+			NSNotificationCenter.DefaultCenter.RemoveObserver (_keyboardDidFrameToken);
+			NSNotificationCenter.DefaultCenter.RemoveObserver (_keyboardWillShowToken);
+			NSNotificationCenter.DefaultCenter.RemoveObserver (_keyboardWillHideToken);
 		}
 
 		void KeyboardWillShowOrHide (NSNotification notification)
@@ -235,7 +287,6 @@ namespace TEditor.iOS
 					frame.Y = this.View.Frame.Height - (nfloat)(_keyboardHeight + sizeOfToolbar);
 					_toolbarHolder.Frame = frame;
 
-
 					CGRect editorFrame = _webView.Frame;
 					editorFrame.Height = this.View.Frame.Height - (nfloat)(_keyboardHeight + sizeOfToolbar);
 					_webView.Frame = editorFrame;
@@ -257,7 +308,6 @@ namespace TEditor.iOS
 
 		void KeyboardDidFrame (NSNotification note)
 		{
-
 			foreach (UIView possibleFormView in _webView.ScrollView.Subviews) {
 				if (possibleFormView.Description.Contains ("UIWebBrowserView")) {
 

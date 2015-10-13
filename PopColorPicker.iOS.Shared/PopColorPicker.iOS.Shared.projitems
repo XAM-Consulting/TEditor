@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{CA191C88-3C87-4659-83B3-250C7C5EC9B6}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PopColorPicker.iOS.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Helper\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\DisplayHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\LayerHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ColorPickerHSBView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ColorPickerHueCircleView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ColorPickerFavoriteViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ColorPickerHueGridViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ColorPickerStandardViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FavoriteColorManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ColorPickerCustomViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PopColorPickerViewController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-bar%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-custom%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-favorite%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-grid%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-inner-marker%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-marker%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-save%402x.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\color-picker-trash%402x.png" />
+  </ItemGroup>
+</Project>

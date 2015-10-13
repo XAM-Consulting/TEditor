@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- App -->
+  <string name="app_name">ColorPickers</string>
+
+  <!-- Color Picker -->
+  <string name="dialog_color_picker">Color Picker</string>
+  <string name="press_color_to_apply">Press on Color to apply</string>
+  
+  <!-- Buttons -->
+  <string name="button_color_picker_noalpha">Pick Color (Advanced)</string>
+  <string name="button_color_picker_alpha">Pick Color with Alpha (Advanced)</string>
+  <string name="button_color_picker_round">Color Picker (Simple)</string>
+  
+</resources>

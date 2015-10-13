@@ -4,6 +4,8 @@ using Android.Webkit;
 using Android.Views;
 using Android.Content;
 using Android.Util;
+using MonoDroid.ColorPickers;
+using Android.Graphics;
 
 namespace TEditor.Droid
 {
@@ -77,6 +79,7 @@ namespace TEditor.Droid
 	public class TEditorWebView : WebView
 	{
 		TEditor _richTextEditor;
+		ColorPickerDialog _colorPickerDialog;
 
 		public TEditor RichTextEditor { get { return _richTextEditor; } }
 		//WebView _webView;
@@ -97,6 +100,14 @@ namespace TEditor.Droid
 				this.EvaluateJavascript (input, result);
 				return result.Result;
 			});
+			_colorPickerDialog = new ColorPickerDialog (context, Color.Red);
+			_colorPickerDialog.ColorChanged += (o, args) => {
+				_richTextEditor.SetTextColor((int)args.Color.R, (int)args.Color.G, (int)args.Color.B);
+			};
+
+			_richTextEditor.LaunchColorPicker = () => { 
+				_colorPickerDialog.Show();
+			};
 			this.LoadResource ();
 
 		}

@@ -4,7 +4,7 @@ namespace TEditor
 {
 	internal interface ITEditorAPI
 	{
-		void AlignCenter();
+		void AlignCenter ();
 
 		void AlignFull ();
 
@@ -30,11 +30,11 @@ namespace TEditor
 
 		void Paragraph ();
 
-		void QuickLink();
+		void QuickLink ();
 
 		void RemoveFormat ();
 
-		void Redo();
+		void Redo ();
 
 		void SetBold ();
 
@@ -59,17 +59,20 @@ namespace TEditor
 		void SetUnorderedList ();
 
 		void SetPlatformAsIOS ();
-		
+
 		void SetPlatformAsDroid ();
 
 		void UpdateHTML ();
 
-		void Undo();
+		void Undo ();
 
-		void SetFooterHeight(double height);
+		void SetFooterHeight (double height);
 
-		void SetContentHeight(double height);
+		void SetContentHeight (double height);
 
+		Action LaunchColorPicker { get; set; }
+
+		void SetTextColor (int R, int G, int B);
 	}
 }
 

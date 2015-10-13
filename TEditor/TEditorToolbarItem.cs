@@ -30,7 +30,7 @@ namespace TEditor
 			AddH4 ();
 			AddH5 ();
 			AddH6 ();
-			//TextColor
+			AddTextColor ();
 			//BackgroundColor
 			AddUnorderedList ();
 			AddOrderedList ();
@@ -57,6 +57,7 @@ namespace TEditor
 		}
 
 		#region Add functions
+
 		public ToolbarBuilder AddBold ()
 		{
 			AddOnce (new TEditorToolbarItem {
@@ -414,6 +415,20 @@ namespace TEditor
 				Label = "paragraph",
 				ClickFunc = (input) => {
 					input.Paragraph ();
+					return string.Empty;
+				}
+			});
+			return this;
+		}
+
+		public ToolbarBuilder AddTextColor ()
+		{
+			AddOnce (new TEditorToolbarItem {
+				ImagePath = "ZSStextcolor.png",
+				Label = "textcolor",
+				ClickFunc = (input) => {
+					if (input.LaunchColorPicker != null)
+						input.LaunchColorPicker.Invoke ();
 					return string.Empty;
 				}
 			});

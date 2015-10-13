@@ -111,6 +111,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Controls\TEditorViewController.cs" />
   </ItemGroup>
+  <Import Project="..\PopColorPicker.iOS.Shared\PopColorPicker.iOS.Shared.projitems" Label="Shared" Condition="Exists('..\PopColorPicker.iOS.Shared\PopColorPicker.iOS.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Controls\" />
@@ -188,5 +189,29 @@
     <BundleResource Include="Resources\ZSSunorderedlist%402x.png" />
     <BundleResource Include="Resources\ZSSviewsource.png" />
     <BundleResource Include="Resources\ZSSviewsource%402x.png" />
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-bar%402x.png">
+      <Link>Resources\color-bar%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-custom%402x.png">
+      <Link>Resources\color-picker-custom%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-favorite%402x.png">
+      <Link>Resources\color-picker-favorite%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-grid%402x.png">
+      <Link>Resources\color-picker-grid%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-inner-marker%402x.png">
+      <Link>Resources\color-picker-inner-marker%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-marker%402x.png">
+      <Link>Resources\color-picker-marker%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-save%402x.png">
+      <Link>Resources\color-picker-save%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-trash%402x.png">
+      <Link>Resources\color-picker-trash%402x.png</Link>
+    </BundleResource>
   </ItemGroup>
 </Project>

@@ -48,6 +48,10 @@
       <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
       <Name>TEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MonoDroid.ColorPickers\MonoDroid.ColorPickers.csproj">
+      <Project>{4FBCBB3F-498C-484A-B043-EDC7FD98FE1E}</Project>
+      <Name>MonoDroid.ColorPickers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
