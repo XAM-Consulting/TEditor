@@ -58,10 +58,10 @@ namespace TEditor
 
 		#region Add functions
 
-		public ToolbarBuilder AddBold ()
+		public ToolbarBuilder AddBold (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSbold.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSbold.png" : imagePath,
 				Label = "bold",
 				ClickFunc = (input) => {
 					input.SetBold ();
@@ -72,10 +72,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddItalic ()
+		public ToolbarBuilder AddItalic (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSitalic.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSitalic.png" : imagePath,
 				Label = "italic",
 				ClickFunc = (input) => {
 					input.SetItalic ();
@@ -86,10 +86,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddSubscript ()
+		public ToolbarBuilder AddSubscript (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSsubscript.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSsubscript.png" : imagePath,
 				Label = "subscript",
 				ClickFunc = (input) => {
 					input.SetSubscript ();
@@ -100,10 +100,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddSuperscript ()
+		public ToolbarBuilder AddSuperscript (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSsuperscript.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSsuperscript.png" : imagePath,
 				Label = "superscript",
 				ClickFunc = (input) => {
 					input.SetSuperscript ();
@@ -114,10 +114,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddStrikeThrough ()
+		public ToolbarBuilder AddStrikeThrough (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSstrikethrough.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSstrikethrough.png" : imagePath,
 				Label = "strikethrough",
 				ClickFunc = (input) => {
 					input.SetStrikeThrough ();
@@ -128,10 +128,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddUnderline ()
+		public ToolbarBuilder AddUnderline (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSunderline.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSunderline.png" : imagePath,
 				Label = "underline",
 				ClickFunc = (input) => {
 					input.SetUnderline ();
@@ -142,10 +142,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddRemoveFormat ()
+		public ToolbarBuilder AddRemoveFormat (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSclearstyle.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSclearstyle.png" : imagePath,
 				Label = "clearstyle",
 				ClickFunc = (input) => {
 					input.RemoveFormat ();
@@ -156,10 +156,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddJustifyLeft ()
+		public ToolbarBuilder AddJustifyLeft (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSleftjustify.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSleftjustify.png" : imagePath,
 				Label = "leftjustify",
 				ClickFunc = (input) => {
 					input.AlignLeft ();
@@ -170,10 +170,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddJustifyCenter ()
+		public ToolbarBuilder AddJustifyCenter (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSScenterjustify.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSScenterjustify.png" : imagePath,
 				Label = "centerjustify",
 				ClickFunc = (input) => {
 					input.AlignCenter ();
@@ -184,10 +184,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddJustifyRight ()
+		public ToolbarBuilder AddJustifyRight (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSrightjustify.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSrightjustify.png" : imagePath,
 				Label = "rightjustify",
 				ClickFunc = (input) => {
 					input.AlignRight ();
@@ -198,10 +198,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddJustifyFull ()
+		public ToolbarBuilder AddJustifyFull (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSforcejustify.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSforcejustify.png" : imagePath,
 				Label = "forcejustify",
 				ClickFunc = (input) => {
 					input.AlignFull ();
@@ -212,10 +212,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddH1 ()
+		public ToolbarBuilder AddH1 (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSh1.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSh1.png" : imagePath,
 				Label = "h1",
 				ClickFunc = (input) => {
 					input.Heading1 ();
@@ -226,10 +226,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddH2 ()
+		public ToolbarBuilder AddH2 (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSh2.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSh2.png" : imagePath,
 				Label = "h2",
 				ClickFunc = (input) => {
 					input.Heading2 ();
@@ -240,10 +240,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddH3 ()
+		public ToolbarBuilder AddH3 (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSh3.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSh3.png" : imagePath,
 				Label = "h3",
 				ClickFunc = (input) => {
 					input.Heading3 ();
@@ -254,10 +254,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddH4 ()
+		public ToolbarBuilder AddH4 (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSh4.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSh4.png" : imagePath,
 				Label = "h4",
 				ClickFunc = (input) => {
 					input.Heading4 ();
@@ -268,10 +268,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddH5 ()
+		public ToolbarBuilder AddH5 (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSh5.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSh5.png" : imagePath,
 				Label = "h5",
 				ClickFunc = (input) => {
 					input.Heading5 ();
@@ -282,10 +282,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddH6 ()
+		public ToolbarBuilder AddH6 (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSh6.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSh6.png" : imagePath,
 				Label = "h6",
 				ClickFunc = (input) => {
 					input.Heading6 ();
@@ -296,10 +296,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddUnorderedList ()
+		public ToolbarBuilder AddUnorderedList (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSunorderedlist.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSunorderedlist.png" : imagePath,
 				Label = "unorderedlist",
 				ClickFunc = (input) => {
 					input.SetUnorderedList ();
@@ -310,10 +310,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddOrderedList ()
+		public ToolbarBuilder AddOrderedList (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSorderedlist.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSorderedlist.png" : imagePath,
 				Label = "orderedlist",
 				ClickFunc = (input) => {
 					input.SetOrderedList ();
@@ -324,10 +324,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddHorizontalRule ()
+		public ToolbarBuilder AddHorizontalRule (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSShorizontalrule.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSShorizontalrule.png" : imagePath,
 				Label = "horizontalrule",
 				ClickFunc = (input) => {
 					input.SetHR ();
@@ -338,10 +338,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddIndent ()
+		public ToolbarBuilder AddIndent (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSindent.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSindent.png" : imagePath,
 				Label = "indent",
 				ClickFunc = (input) => {
 					input.SetIndent ();
@@ -352,10 +352,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddOutdent ()
+		public ToolbarBuilder AddOutdent (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSoutdent.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSoutdent.png" : imagePath,
 				Label = "outdent",
 				ClickFunc = (input) => {
 					input.SetOutdent ();
@@ -366,10 +366,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddQuickLink ()
+		public ToolbarBuilder AddQuickLink (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSquicklink.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSquicklink.png" : imagePath,
 				Label = "quicklink",
 				ClickFunc = (input) => {
 					input.QuickLink ();
@@ -380,10 +380,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddUndo ()
+		public ToolbarBuilder AddUndo (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSundo.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSundo.png" : imagePath,
 				Label = "undo",
 				ClickFunc = (input) => {
 					input.Undo ();
@@ -394,10 +394,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddRedo ()
+		public ToolbarBuilder AddRedo (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSredo.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSredo.png" : imagePath,
 				Label = "redo",
 				ClickFunc = (input) => {
 					input.Redo ();
@@ -408,10 +408,10 @@ namespace TEditor
 		}
 
 
-		public ToolbarBuilder AddParagraph ()
+		public ToolbarBuilder AddParagraph (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSSparagraph.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSSparagraph.png" : imagePath,
 				Label = "paragraph",
 				ClickFunc = (input) => {
 					input.Paragraph ();
@@ -421,15 +421,14 @@ namespace TEditor
 			return this;
 		}
 
-		public ToolbarBuilder AddTextColor ()
+		public ToolbarBuilder AddTextColor (string imagePath = null)
 		{
 			AddOnce (new TEditorToolbarItem {
-				ImagePath = "ZSStextcolor.png",
+				ImagePath = string.IsNullOrEmpty (imagePath) ? "ZSStextcolor.png" : imagePath,
 				Label = "textcolor",
 				ClickFunc = (input) => {
-					if (input.LaunchColorPicker != null)
-					{
-						input.PrepareInsert();
+					if (input.LaunchColorPicker != null) {
+						input.PrepareInsert ();
 						input.LaunchColorPicker.Invoke ();
 					}
 					return string.Empty;

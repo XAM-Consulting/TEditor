@@ -2,7 +2,7 @@
 using UIKit;
 using CoreGraphics;
 
-namespace TEditor.iOS
+namespace TEditor.iOS.Sample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
@@ -18,16 +18,8 @@ namespace TEditor.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
-
-			// Code to start the Xamarin Test Cloud Agent
-			#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start ();
-			#endif
-
+			// create a new window instance based on the screen size
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
-
 
 			var vc = new UIViewController ();
 			var nv = new UINavigationController (vc);
@@ -43,7 +35,7 @@ namespace TEditor.iOS
 			button.SetTitleColor (UIColor.Black, UIControlState.Normal);
 			button.TouchUpInside += (object sender, System.EventArgs e) => {
 				var tvc = new TEditorViewController ();
-				ToolbarBuilder builder = new ToolbarBuilder().AddStandard();
+				ToolbarBuilder builder = new ToolbarBuilder().AddAll();
 				tvc.BuildToolbar(builder);
 
 				tvc.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
@@ -53,6 +45,7 @@ namespace TEditor.iOS
 			Window.RootViewController = nv;
 
 
+			// make the window visible
 			Window.MakeKeyAndVisible ();
 
 			return true;

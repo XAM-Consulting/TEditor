@@ -7,11 +7,13 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace TEditor.Droid
+namespace TEditor.Droid.Sample
 {
-	[Activity (Label = "TEditor.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "TEditor.Droid.Sample", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
+		int count = 1;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -25,9 +27,10 @@ namespace TEditor.Droid
 			
 			button.Click += delegate {
 				var tActivity = new Intent (this, typeof(TEditorActivity));
-//				tActivity.PutExtra ("ToolbarStyle", "Basic");
-				tActivity.PutExtra ("ToolbarStyle", "Standard");
-//				tActivity.PutExtra ("ToolbarStyle", "All");
+				//				tActivity.PutExtra ("ToolbarStyle", "Basic");
+				//				tActivity.PutExtra ("ToolbarStyle", "Standard");
+				tActivity.PutExtra ("ToolbarStyle", "All");
+				tActivity.PutExtra("HTMLString", "<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
 				StartActivity (tActivity);
 			};
 		}

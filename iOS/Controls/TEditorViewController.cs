@@ -51,10 +51,8 @@ namespace TEditor.iOS
 		public TEditorViewController () : base ()
 		{
 			_richTextEditor = new TEditor ();
-			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {
-				
+			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {				
 				string res =  _webView.EvaluateJavascript (input);
-				Console.WriteLine("Input is "+ input +"result is "+res);
 				return res;
 			});				
 

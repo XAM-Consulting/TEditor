@@ -44,8 +44,8 @@ namespace TEditor.Droid
 				BuildToolbar (new ToolbarBuilder ().AddBasic ());
 				break;
 			}
-
-			_editorWebView.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
+			string htmlString = Intent.GetStringExtra ("HTMLString") ?? "<p></p>";
+			_editorWebView.SetHTML (htmlString);
 
 		}
 

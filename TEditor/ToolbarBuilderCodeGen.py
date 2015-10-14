@@ -31,10 +31,10 @@ funcnameArr =[["Bold","bold","SetBold"],
 
 codetempleStr = """
 
-		public ToolbarBuilder Add{0}()
+		public ToolbarBuilder Add{0}(string imagePath = null)
 		{{
 			AddOnce (new TEditorToolbarItem {{
-				ImagePath = \"ZSS{1}.png\",
+				ImagePath = string.IsNullOrEmpty(imagePath)? \"ZSS{1}.png\" : imagePath,
 				Label = \"{1}\",
 				ClickFunc = (input) => {{
 					input.{2} ();
