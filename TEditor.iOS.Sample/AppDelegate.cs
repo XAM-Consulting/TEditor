@@ -38,8 +38,13 @@ namespace TEditor.iOS.Sample
 				ToolbarBuilder builder = new ToolbarBuilder().AddAll();
 				tvc.BuildToolbar(builder);
 
+				tvc.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem("Done",UIBarButtonItemStyle.Done,(item,args)=>{
+					System.Console.WriteLine(tvc.GetHTML());
+				}),true);
+
 				tvc.SetHTML ("<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
 				nv.PushViewController (tvc, true);
+
 			};
 			vc.View.AddSubview (button);
 			Window.RootViewController = nv;

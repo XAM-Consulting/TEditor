@@ -37,7 +37,6 @@ namespace TEditor.Droid
 			Activity activity = this.Context as Activity;
 			Rect rect = new Rect ();
 			activity.Window.DecorView.GetWindowVisibleDisplayFrame (rect);
-			Console.WriteLine (string.Format ("rect infor is {0}, {1}, {2}, {3}", rect.Top, rect.Bottom, rect.Height(), height));
 			int VisibleHeight = rect.Height();
 			Point size = new Point ();
 			activity.WindowManager.DefaultDisplay.GetSize (size);

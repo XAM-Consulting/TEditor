@@ -216,6 +216,19 @@ namespace TEditor.iOS
 			_richTextEditor.InternalHTML = html;
 		}
 
+		public string GetHTML()
+		{
+			return _richTextEditor.GetHTML ();
+		}
+
+		public Action ViewDidClose { get; set; }
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			if (ViewDidClose != null)
+				ViewDidClose.Invoke ();
+			base.ViewDidDisappear (animated);
+		}
 
 		public override void ViewDidLoad ()
 		{
