@@ -231,15 +231,6 @@ namespace TEditor.iOS
 			return await _richTextEditor.GetHTML ();
 		}
 
-		public Action ViewDidClose { get; set; }
-
-		public override void ViewDidDisappear (bool animated)
-		{
-			if (ViewDidClose != null)
-				ViewDidClose.Invoke ();
-			base.ViewDidDisappear (animated);
-		}
-
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();

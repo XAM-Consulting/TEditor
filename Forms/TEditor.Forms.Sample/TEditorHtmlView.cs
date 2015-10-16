@@ -10,10 +10,11 @@ namespace TEditor.Forms.Sample
 		WebView _displayWebView;
 		public TEditorHtmlView ()
 		{
-			this.Children.Add(new Button { Text = "HTML Editor", Command = new Command((obj)=>{
+			this.Orientation = StackOrientation.Vertical;
+			this.Children.Add(new Button { Text = "HTML Editor", HeightRequest=100, Command = new Command((obj)=>{
 					ShowTEditor();
 			})});
-			_displayWebView = new WebView ();
+			_displayWebView = new WebView () {HeightRequest = 500};
 			this.Children.Add(_displayWebView);
 		}
 

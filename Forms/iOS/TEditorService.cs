@@ -21,29 +21,25 @@ namespace TEditorForms.iOS
 		{
 			TaskCompletionSource<string> taskRes = new TaskCompletionSource<string> ();
 			var tvc = new TEditorViewController ();
-			ToolbarBuilder builder = new ToolbarBuilder().AddAll();
-			tvc.BuildToolbar(builder);
-
+			ToolbarBuilder builder = new ToolbarBuilder ().AddAll ();
+			tvc.BuildToolbar (builder);
 			tvc.SetHTML (html);
 
-			tvc.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem("Done",UIBarButtonItemStyle.Done,async (item,args)=>{
-				taskRes.SetResult(await tvc.GetHTML());
-				await tvc.DismissViewControllerAsync(true);
-			}),true);
-
-			tvc.ViewDidClose = () => {
-				taskRes.TrySetCanceled();
-			};
 			UINavigationController nav = null;
 			foreach (var vc in 
-				UIApplication.SharedApplication.Windows[0].RootViewController.ChildViewControllers) 
-			{
+				UIApplication.SharedApplication.Windows[0].RootViewController.ChildViewControllers) {
 				if (vc is UINavigationController)
 					nav = (UINavigationController)vc;
 			}
-			if(nav != null)
-				nav.PresentViewController(new UINavigationController (tvc), true, null);
 
+			tvc.NavigationItem.SetRightBarButtonItem (new UIBarButtonItem ("Done", UIBarButtonItemStyle.Done, async (item, args) => {
+				if (nav != null)
+					nav.PopViewController (true);
+				taskRes.SetResult (await tvc.GetHTML ());
+			}), true);
+
+			if (nav != null)
+				nav.PushViewController (tvc, true);
 			return taskRes.Task;
 		}
 
