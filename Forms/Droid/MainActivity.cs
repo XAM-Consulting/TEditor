@@ -8,6 +8,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using TEditor.Droid;
+using Xamarin.Forms;
+using TEditorForms.Droid;
 
 namespace TEditor.Forms.Sample.Droid
 {
@@ -28,7 +30,10 @@ namespace TEditor.Forms.Sample.Droid
 			if (resultCode == Result.Ok) {
 				if (data != null) {
 					string html = data.GetStringExtra ("HTMLString");
-					Console.WriteLine (html);
+					var editor = (DependencyService.Get<ITEditorService> (DependencyFetchTarget.GlobalInstance) as TEditorService);
+					if (editor != null) {
+						editor.TaskResult.SetResult (html);
+					}
 				}
 			}
 		}

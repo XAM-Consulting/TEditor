@@ -8,6 +8,8 @@ namespace TEditor
 		Func<string, Task<string>> _javaScriptEvaluatFuncWithResult;
 		Action<string> _javaScriptEvaluatFunc;
 
+		bool _platformIsDroid = false;
+
 		public void SetJavaScriptEvaluatingFunction (Action<string> function)
 		{
 			if (function == null)
@@ -34,6 +36,14 @@ namespace TEditor
 			string html = await _javaScriptEvaluatFuncWithResult ("zss_editor.getHTML();");
 			//html = RemoveQuotesFromHTML (html);
 			//html = await TidyHTML (html);
+			if(_platformIsDroid)
+				html = FormatHtmlInDroid(html);
+			return html;
+		}
+
+		string FormatHtmlInDroid(string html)
+		{
+			html = html.Replace ("\\u003C", "<");
 			return html;
 		}
 
@@ -211,6 +221,7 @@ namespace TEditor
 		{
 			string trigger = @"zss_editor.setPlatformAsDroid();";
 			_javaScriptEvaluatFunc.Invoke (trigger);
+			_platformIsDroid = true;
 		}
 
 		public void QuickLink ()
