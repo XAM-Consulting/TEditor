@@ -32,8 +32,8 @@ namespace TEditor
 		public async Task<string> GetHTML ()
 		{
 			string html = await _javaScriptEvaluatFuncWithResult ("zss_editor.getHTML();");
-			html = RemoveQuotesFromHTML (html);
-			html = await TidyHTML (html);
+			//html = RemoveQuotesFromHTML (html);
+			//html = await TidyHTML (html);
 			return html;
 		}
 
