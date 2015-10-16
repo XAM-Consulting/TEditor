@@ -61,12 +61,10 @@
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\Layout\dialog_color_picker.axml" />
     <AndroidResource Include="Resources\Layout-land\dialog_color_picker.axml" />
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -78,5 +76,6 @@
   -->
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="Resources\Drawable\" />
   </ItemGroup>
 </Project>

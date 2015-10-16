@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace TEditor
 {
@@ -12,7 +13,7 @@ namespace TEditor
 
 		void AlignRight ();
 
-		string GetHTML ();
+		Task<string> GetHTML ();
 
 		void Heading1 ();
 

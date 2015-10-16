@@ -54,61 +54,62 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\TEditorActivity.axml" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSbgcolor.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSbold.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSScenterjustify.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSclearstyle.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSforcejustify.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSh1.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSh2.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSh3.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSh4.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSh5.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSh6.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSShorizontalrule.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSimage.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSindent.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSinsertkeyword.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSitalic.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSkeyboard.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSleftjustify.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSlink.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSorderedlist.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSoutdent.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSparagraph.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSpicker.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSquicklink.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSredo.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSrightjustify.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSstrikethrough.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSsubscript.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSsuperscript.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSStable.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSStextcolor.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSunderline.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSundo.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSunlink.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSunorderedlist.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ZSSviewsource.png" />
+    <AndroidResource Include="Resources\drawable\ZSSbgcolor.png" />
+    <AndroidResource Include="Resources\drawable\ZSSbold.png" />
+    <AndroidResource Include="Resources\drawable\ZSScenterjustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSclearstyle.png" />
+    <AndroidResource Include="Resources\drawable\ZSSforcejustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh1.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh2.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh3.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh4.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh5.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh6.png" />
+    <AndroidResource Include="Resources\drawable\ZSShorizontalrule.png" />
+    <AndroidResource Include="Resources\drawable\ZSSimage.png" />
+    <AndroidResource Include="Resources\drawable\ZSSindent.png" />
+    <AndroidResource Include="Resources\drawable\ZSSinsertkeyword.png" />
+    <AndroidResource Include="Resources\drawable\ZSSitalic.png" />
+    <AndroidResource Include="Resources\drawable\ZSSkeyboard.png" />
+    <AndroidResource Include="Resources\drawable\ZSSleftjustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSlink.png" />
+    <AndroidResource Include="Resources\drawable\ZSSorderedlist.png" />
+    <AndroidResource Include="Resources\drawable\ZSSoutdent.png" />
+    <AndroidResource Include="Resources\drawable\ZSSparagraph.png" />
+    <AndroidResource Include="Resources\drawable\ZSSpicker.png" />
+    <AndroidResource Include="Resources\drawable\ZSSquicklink.png" />
+    <AndroidResource Include="Resources\drawable\ZSSredo.png" />
+    <AndroidResource Include="Resources\drawable\ZSSrightjustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSstrikethrough.png" />
+    <AndroidResource Include="Resources\drawable\ZSSsubscript.png" />
+    <AndroidResource Include="Resources\drawable\ZSSsuperscript.png" />
+    <AndroidResource Include="Resources\drawable\ZSStable.png" />
+    <AndroidResource Include="Resources\drawable\ZSStextcolor.png" />
+    <AndroidResource Include="Resources\drawable\ZSSunderline.png" />
+    <AndroidResource Include="Resources\drawable\ZSSundo.png" />
+    <AndroidResource Include="Resources\drawable\ZSSunlink.png" />
+    <AndroidResource Include="Resources\drawable\ZSSunorderedlist.png" />
+    <AndroidResource Include="Resources\drawable\ZSSviewsource.png" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable\MenuDiscard.png" />
+    <AndroidResource Include="Resources\drawable\MenuSave.png" />
+    <AndroidResource Include="Resources\menu\TopToolbarMenu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonoDroid.ColorPickers\MonoDroid.ColorPickers.csproj">
-      <Project>{4FBCBB3F-498C-484A-B043-EDC7FD98FE1E}</Project>
-      <Name>MonoDroid.ColorPickers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TEditor\TEditor.csproj">
       <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
       <Name>TEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoDroid.ColorPickers\MonoDroid.ColorPickers.csproj">
+      <Project>{4FBCBB3F-498C-484A-B043-EDC7FD98FE1E}</Project>
+      <Name>MonoDroid.ColorPickers</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -12,8 +12,6 @@ namespace TEditor.Droid.Sample
 	[Activity (Label = "TEditor.Droid.Sample", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
-
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -30,9 +28,20 @@ namespace TEditor.Droid.Sample
 				//				tActivity.PutExtra ("ToolbarStyle", "Basic");
 				//				tActivity.PutExtra ("ToolbarStyle", "Standard");
 				tActivity.PutExtra ("ToolbarStyle", "All");
-				tActivity.PutExtra("HTMLString", "<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
-				StartActivity (tActivity);
+				tActivity.PutExtra ("HTMLString", "<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
+				StartActivityForResult (tActivity, 0);
 			};
+		}
+
+		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult (requestCode, resultCode, data);
+			if (resultCode == Result.Ok) {
+				if (data != null) {
+					string html = data.GetStringExtra ("HTMLString");
+					Console.WriteLine (html);
+				}
+			}
 		}
 	}
 }

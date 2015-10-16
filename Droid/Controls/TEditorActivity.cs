@@ -3,6 +3,7 @@ using Android.App;
 using Android.Widget;
 using System.Collections.Generic;
 using Android.Views;
+using Android.Content;
 
 namespace TEditor.Droid
 {
@@ -15,12 +16,26 @@ namespace TEditor.Droid
 		TEditorWebView _editorWebView;
 		LinearLayoutDetectsSoftKeyboard _rootLayout;
 		LinearLayout _toolbarLayout;
+		Toolbar _topToolBar;
 
 		protected override void OnCreate (Android.OS.Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
 
 			SetContentView (Resource.Layout.TEditorActivity);
+
+			_topToolBar = FindViewById<Toolbar> (Resource.Id.TopToolbar);
+			_topToolBar.Title = "HTML Editor";
+			_topToolBar.InflateMenu (Resource.Menu.TopToolbarMenu);
+			_topToolBar.MenuItemClick += async (sender, e) => {
+				if (e.Item.TitleFormatted.ToString () == "Save") {					
+					string html = await _editorWebView.GetHTML ();
+					Intent newIntent = new Intent ();
+					newIntent.PutExtra ("HTMLString", html);
+					SetResult (Result.Ok, newIntent);
+				}
+				Finish ();
+			};
 
 			_rootLayout = FindViewById<LinearLayoutDetectsSoftKeyboard> (Resource.Id.RootRelativeLayout);
 			_editorWebView = FindViewById<TEditorWebView> (Resource.Id.EditorWebView);
@@ -75,14 +90,16 @@ namespace TEditor.Droid
 			if (shown) {
 				_toolbarLayout.Visibility = Android.Views.ViewStates.Visible;
 				int toolbarHeight = _toolbarLayout.MeasuredHeight == 0 ? ToolbarFixHeight : _toolbarLayout.MeasuredHeight;
-				int editorHeight = newHeight - toolbarHeight;
+				int topToolbarHeight = _topToolBar.MeasuredHeight == 0 ? ToolbarFixHeight : _topToolBar.MeasuredHeight;
+				int editorHeight = newHeight - toolbarHeight - topToolbarHeight;
 				_editorWebView.LayoutParameters.Height = editorHeight;
 				_editorWebView.LayoutParameters.Width = LinearLayout.LayoutParams.MatchParent;
 				_editorWebView.RequestLayout ();
 			} else {
 				if (newHeight != 0) {
 					_toolbarLayout.Visibility = Android.Views.ViewStates.Invisible;
-					_editorWebView.LayoutParameters= new LinearLayout.LayoutParams (-1,-1);;
+					_editorWebView.LayoutParameters = new LinearLayout.LayoutParams (-1, -1);
+					;
 				}
 			}
 		}

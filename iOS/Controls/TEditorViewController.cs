@@ -4,6 +4,7 @@ using CoreGraphics;
 using System.Collections.Generic;
 using Foundation;
 using PopColorPicker.iOS;
+using System.Threading.Tasks;
 
 namespace TEditor.iOS
 {
@@ -52,9 +53,18 @@ namespace TEditor.iOS
 		{
 			_richTextEditor = new TEditor ();
 			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {				
-				string res =  _webView.EvaluateJavascript (input);
-				return res;
-			});				
+				_webView.EvaluateJavascript (input);				 
+			});	
+			_richTextEditor.SetJavaScriptEvaluatingWithResultFunction ((input) => {
+				return Task.Run<string>(()=>{
+					string res = string.Empty; 
+					InvokeOnMainThread(()=>{						
+						res =  _webView.EvaluateJavascript (input);
+					});
+					return res;
+				});
+				
+			});
 
 		}
 
@@ -216,9 +226,9 @@ namespace TEditor.iOS
 			_richTextEditor.InternalHTML = html;
 		}
 
-		public string GetHTML()
+		public async Task<string> GetHTML()
 		{
-			return _richTextEditor.GetHTML ();
+			return await _richTextEditor.GetHTML ();
 		}
 
 		public Action ViewDidClose { get; set; }

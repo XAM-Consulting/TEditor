@@ -5,6 +5,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1.0">
+    <Toolbar
+        android:id="@+id/TopToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
     <TEditor.Droid.TEditorWebView
         android:id="@+id/EditorWebView"
         android:layout_marginTop="0dp"

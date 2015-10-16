@@ -6,6 +6,7 @@ using Android.Content;
 using Android.Util;
 using MonoDroid.ColorPickers;
 using Android.Graphics;
+using System.Threading.Tasks;
 
 namespace TEditor.Droid
 {
@@ -59,20 +60,29 @@ namespace TEditor.Droid
 		{
 			Log.Info ("WebView", consoleMessage.Message ());
 			return base.OnConsoleMessage (consoleMessage);
-		}
-			
-			
+		}			
 	}
 
 	public class JavaScriptResult : Java.Lang.Object, IValueCallback
 	{
-		public string Result { get; set; }
+		TaskCompletionSource<string> _taskResult = new TaskCompletionSource<string> ();
 
 		public void OnReceiveValue (Java.Lang.Object result)
-		{
+		{			
 			Java.Lang.String json = (Java.Lang.String)result;
-			// |json| is a string of JSON containing the result of your evaluation
-			Result = json.ToString ();
+			try 
+			{				
+				_taskResult.SetResult (json.ToString ());
+			} 
+			catch(Exception ex) 
+			{
+				_taskResult.SetException (ex);
+			}
+		}
+
+		public Task<string> GetResultAsync ()
+		{	
+			return _taskResult.Task;
 		}
 	}
 
@@ -96,17 +106,26 @@ namespace TEditor.Droid
 			this.SetWebViewClient (new TEditorWebViewClient (_richTextEditor));
 			this.SetWebChromeClient (new TEditorChromeWebClient ());
 			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {
+				this.EvaluateJavascript (input, null);
+			});
+			_richTextEditor.SetJavaScriptEvaluatingWithResultFunction ((input) => {
+				var activity = context as Activity;
 				JavaScriptResult result = new JavaScriptResult ();
 				this.EvaluateJavascript (input, result);
-				return result.Result;
+				if(activity!=null)
+				{
+					activity.RunOnUiThread(() => {
+					});
+				}
+				return result.GetResultAsync();
 			});
 			_colorPickerDialog = new ColorPickerDialog (context, Color.Red);
 			_colorPickerDialog.ColorChanged += (o, args) => {
-				_richTextEditor.SetTextColor((int)args.Color.R, (int)args.Color.G, (int)args.Color.B);
+				_richTextEditor.SetTextColor ((int)args.Color.R, (int)args.Color.G, (int)args.Color.B);
 			};
 
 			_richTextEditor.LaunchColorPicker = () => { 
-				_colorPickerDialog.Show();
+				_colorPickerDialog.Show ();
 			};
 			this.LoadResource ();
 
@@ -138,6 +157,11 @@ namespace TEditor.Droid
 		{
 			_richTextEditor.InternalHTML = html;
 			_richTextEditor.UpdateHTML ();
+		}
+
+		public async Task<string> GetHTML ()
+		{
+			return await _richTextEditor.GetHTML ();
 		}
 
 	}

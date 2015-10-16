@@ -1,18 +1,26 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace TEditor
 {
 	partial class TEditor : ITEditorAPI
 	{
-		Func<string, string> _javaScriptEvaluatFunc;
+		Func<string, Task<string>> _javaScriptEvaluatFuncWithResult;
+		Action<string> _javaScriptEvaluatFunc;
 
-		public void SetJavaScriptEvaluatingFunction (Func<string,string> function)
+		public void SetJavaScriptEvaluatingFunction (Action<string> function)
 		{
 			if (function == null)
 				throw new ArgumentNullException ("Function cannot be null");
 			_javaScriptEvaluatFunc = function;
 		}
 
+		public void SetJavaScriptEvaluatingWithResultFunction(Func<string, Task<string>> function)
+		{
+			if (function == null)
+				throw new ArgumentNullException ("Function cannot be null");
+			_javaScriptEvaluatFuncWithResult = function;
+		}
 		public void UpdateHTML ()
 		{
 			string html = this.InternalHTML;
@@ -21,12 +29,11 @@ namespace TEditor
 			_javaScriptEvaluatFunc.Invoke (trigger);
 		}
 
-		public string GetHTML ()
+		public async Task<string> GetHTML ()
 		{
-			
-			string html = _javaScriptEvaluatFunc.Invoke ("zss_editor.getHTML();");
+			string html = await _javaScriptEvaluatFuncWithResult ("zss_editor.getHTML();");
 			html = RemoveQuotesFromHTML (html);
-			html = TidyHTML (html);
+			html = await TidyHTML (html);
 			return html;
 		}
 
@@ -40,12 +47,12 @@ namespace TEditor
 			return html;
 		}
 
-		string TidyHTML (string html)
+		async Task<string> TidyHTML (string html)
 		{
 			html = html.Replace ("<br>", "<br />");
 			html = html.Replace ("<hr>", "<hr />");
 			if (this.FormatHTML)
-				html = _javaScriptEvaluatFunc.Invoke (string.Format ("style_html(\"{0}\");", html));
+				html = await _javaScriptEvaluatFuncWithResult.Invoke (string.Format ("style_html(\"{0}\");", html));
 			return html;
 		}
 
