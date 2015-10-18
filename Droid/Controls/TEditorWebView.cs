@@ -7,6 +7,7 @@ using Android.Util;
 using MonoDroid.ColorPickers;
 using Android.Graphics;
 using System.Threading.Tasks;
+using Java.IO;
 
 namespace TEditor.Droid
 {
@@ -69,10 +70,17 @@ namespace TEditor.Droid
 
 		public void OnReceiveValue (Java.Lang.Object result)
 		{			
-			Java.Lang.String json = (Java.Lang.String)result;
 			try 
 			{				
-				_taskResult.SetResult (json.ToString ());
+				JsonReader reader = new JsonReader(new StringReader(result.ToString()));
+				reader.Lenient = true;
+
+				if(reader.Peek() != JsonToken.Null) {
+					if(reader.Peek() == JsonToken.String) {
+						String msg = reader.NextString();
+						_taskResult.SetResult (msg.ToString());
+					}
+				}
 			} 
 			catch(Exception ex) 
 			{

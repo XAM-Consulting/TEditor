@@ -34,16 +34,6 @@ namespace TEditor
 		public async Task<string> GetHTML ()
 		{
 			string html = await _javaScriptEvaluatFuncWithResult ("zss_editor.getHTML();");
-			//html = RemoveQuotesFromHTML (html);
-			//html = await TidyHTML (html);
-			if(_platformIsDroid)
-				html = FormatHtmlInDroid(html);
-			return html;
-		}
-
-		string FormatHtmlInDroid(string html)
-		{
-			html = html.Replace ("\\u003C", "<");
 			return html;
 		}
 
