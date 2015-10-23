@@ -4,19 +4,20 @@ using Android.Widget;
 using System.Collections.Generic;
 using Android.Views;
 using Android.Content;
+using Android.Support.V7.App;
 
 namespace TEditor.Droid
 {
 	[Activity (Label = "TEditorActivity", 
-		WindowSoftInputMode = Android.Views.SoftInput.AdjustResize | Android.Views.SoftInput.StateVisible,
-		Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
+		WindowSoftInputMode = Android.Views.SoftInput.AdjustResize | Android.Views.SoftInput.StateHidden,
+		Theme = "@style/Theme.AppCompat.NoActionBar.FullScreen")]
 	public class TEditorActivity : Activity
 	{
-		const int ToolbarFixHeight = 144;
+		const int ToolbarFixHeight = 60;
 		TEditorWebView _editorWebView;
 		LinearLayoutDetectsSoftKeyboard _rootLayout;
 		LinearLayout _toolbarLayout;
-		Toolbar _topToolBar;
+		Android.Support.V7.Widget.Toolbar _topToolBar;
 
 		protected override void OnCreate (Android.OS.Bundle savedInstanceState)
 		{
@@ -24,7 +25,7 @@ namespace TEditor.Droid
 
 			SetContentView (Resource.Layout.TEditorActivity);
 
-			_topToolBar = FindViewById<Toolbar> (Resource.Id.TopToolbar);
+			_topToolBar = FindViewById<Android.Support.V7.Widget.Toolbar> (Resource.Id.TopToolbar);
 			_topToolBar.Title = "HTML Editor";
 			_topToolBar.InflateMenu (Resource.Menu.TopToolbarMenu);
 			_topToolBar.MenuItemClick += async (sender, e) => {
@@ -69,7 +70,7 @@ namespace TEditor.Droid
 			base.Dispose (disposing);
 			_rootLayout.onKeyboardShown -= HandleSoftKeyboardShwon;
 		}
-
+			
 		public void BuildToolbar (ToolbarBuilder builder)
 		{
 			foreach (var item in builder) {
@@ -89,8 +90,11 @@ namespace TEditor.Droid
 		{			
 			if (shown) {
 				_toolbarLayout.Visibility = Android.Views.ViewStates.Visible;
-				int toolbarHeight = _toolbarLayout.MeasuredHeight == 0 ? ToolbarFixHeight : _toolbarLayout.MeasuredHeight;
-				int topToolbarHeight = _topToolBar.MeasuredHeight == 0 ? ToolbarFixHeight : _topToolBar.MeasuredHeight;
+				int widthSpec = View.MeasureSpec.MakeMeasureSpec (0, MeasureSpecMode.Unspecified);
+				int heightSpec = View.MeasureSpec.MakeMeasureSpec (0, MeasureSpecMode.Unspecified);
+				_toolbarLayout.Measure (widthSpec,heightSpec);
+				int toolbarHeight = _toolbarLayout.MeasuredHeight == 0 ? (int)(ToolbarFixHeight * Resources.DisplayMetrics.Density) : _toolbarLayout.MeasuredHeight;
+				int topToolbarHeight = _topToolBar.MeasuredHeight == 0 ? (int)(ToolbarFixHeight * Resources.DisplayMetrics.Density) : _topToolBar.MeasuredHeight;
 				int editorHeight = newHeight - toolbarHeight - topToolbarHeight;
 				_editorWebView.LayoutParameters.Height = editorHeight;
 				_editorWebView.LayoutParameters.Width = LinearLayout.LayoutParams.MatchParent;

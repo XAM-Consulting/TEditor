@@ -3,13 +3,11 @@
     android:id="@+id/RootRelativeLayout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="1.0">
-    <Toolbar
+    android:layout_height="fill_parent">
+    <android.support.v7.widget.Toolbar
         android:id="@+id/TopToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
+        android:layout_height="wrap_content" />
     <TEditor.Droid.TEditorWebView
         android:id="@+id/EditorWebView"
         android:layout_marginTop="0dp"
@@ -17,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        android:layout_marginBottom="0dp"
-        android:layout_weight="0.9" />
+        android:layout_marginBottom="0dp" />
     <LinearLayout
         android:id="@+id/ToolbarLayout"
         android:orientation="horizontal"
@@ -29,7 +26,6 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
             android:padding="0dp">
             <LinearLayout
                 android:id="@+id/ToolbarItemsLayout"
