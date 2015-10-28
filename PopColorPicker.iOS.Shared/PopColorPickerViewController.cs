@@ -69,7 +69,7 @@ namespace PopColorPicker.iOS
 			this.View.BackgroundColor = UIColor.FromRGB(83, 83, 83);
 			this.PreferredContentSize = new SizeF(320f, 568f);
 
-			if (float.Parse(UIDevice.CurrentDevice.SystemVersion) >= 7.0f)
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7,0))
 			{
 				this.EdgesForExtendedLayout = UIRectEdge.None;
 				this.ExtendedLayoutIncludesOpaqueBars = false;
