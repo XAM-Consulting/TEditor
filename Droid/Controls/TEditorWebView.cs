@@ -99,8 +99,20 @@ namespace TEditor.Droid
 		TEditor _richTextEditor;
 		ColorPickerDialog _colorPickerDialog;
 
-		public TEditor RichTextEditor { get { return _richTextEditor; } }
-		//WebView _webView;
+        string _baseUrl = "www.xam-consulting.com";
+        public string BaseUrl
+        {
+            get
+            {
+                return _baseUrl;
+            }
+            set
+            {
+                _baseUrl = value;
+            }
+        }
+
+        public TEditor RichTextEditor { get { return _richTextEditor; } }
 
 		public TEditorWebView (Context context) : base (context)
 		{
@@ -158,7 +170,7 @@ namespace TEditor.Droid
 			this.Settings.DomStorageEnabled = true;
 
 			string htmlResource = _richTextEditor.LoadResources ();
-			this.LoadDataWithBaseURL ("http://www.xam-consulting.com", htmlResource, "text/html", "UTF-8", "");
+			this.LoadDataWithBaseURL (BaseUrl, htmlResource, "text/html", "UTF-8", "");
 		}
 
 		public void SetHTML (string html)

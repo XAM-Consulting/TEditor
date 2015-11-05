@@ -49,7 +49,18 @@ namespace TEditor.iOS
 		PopColorPickerViewController _colorPickerViewController;
 		UIPopoverController _popoverController;
 
-		public TEditorViewController () : base ()
+        string _baseUrl = "www.xam-consulting.com";
+        public string BaseUrl {
+            get {
+                return _baseUrl;
+            }
+            set
+            {
+                _baseUrl = value;
+            }
+        }
+
+        public TEditorViewController () : base ()
 		{
 			_richTextEditor = new TEditor ();
 			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {				
@@ -218,7 +229,7 @@ namespace TEditor.iOS
 		public void LoadResource ()
 		{
 			string htmlResource = _richTextEditor.LoadResources ();
-			_webView.LoadHtmlString (htmlResource, new Foundation.NSUrl ("www.xam-consulting.com"));
+			_webView.LoadHtmlString (htmlResource, new Foundation.NSUrl (BaseUrl));
 		}
 
 		public void SetHTML (string html)

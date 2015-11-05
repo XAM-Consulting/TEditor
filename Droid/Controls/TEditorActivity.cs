@@ -62,8 +62,10 @@ namespace TEditor.Droid
 			}
 			string htmlString = Intent.GetStringExtra ("HTMLString") ?? "<p></p>";
 			_editorWebView.SetHTML (htmlString);
-
-		}
+            string baseUrl = Intent.GetStringExtra("BaseUrl");
+            if (!string.IsNullOrEmpty(baseUrl))
+                _editorWebView.BaseUrl = baseUrl;         
+        }
 
 		protected override void Dispose (bool disposing)
 		{
