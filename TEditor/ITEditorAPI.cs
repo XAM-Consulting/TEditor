@@ -63,7 +63,9 @@ namespace TEditor
 
 		void SetPlatformAsDroid ();
 
-		void UpdateHTML ();
+        void SetPlatformAsUWP();
+
+        void UpdateHTML ();
 
 		void Undo ();
 

@@ -27,3 +27,4 @@ using System.Runtime.CompilerServices;
 
 [assembly :InternalsVisibleTo("TEditor.Droid")]
 [assembly :InternalsVisibleTo("TEditor.iOS")]
+[assembly: InternalsVisibleTo("TEditor.UWP")]

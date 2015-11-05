@@ -15,6 +15,9 @@ zss_editor.isUsingiOS = true;
 // If we are using Android
 zss_editor.isUsingDroid = false;
 
+// If we are using Windows universal App
+zss_editor.isUsingUWP = false;
+
 // If the user is draging
 zss_editor.isDragging = false;
 
@@ -79,13 +82,20 @@ zss_editor.init = function() {
 zss_editor.setPlatformAsDroid = function() {
 	zss_editor.isUsingiOS = false;
 	zss_editor.isUsingDroid = true;
+	zss_editor.isUsingUWP = false;
 }
 
 zss_editor.setPlatformAsIOS = function() {
 	zss_editor.isUsingiOS = true;
 	zss_editor.isUsingDroid = false;
+	zss_editor.isUsingUWP = false;
 }
 
+zss_editor.setPlatformAsUWP = function () {
+    zss_editor.isUsingiOS = false;
+    zss_editor.isUsingDroid = false;
+    zss_editor.isUsingUWP = true;
+}
 
 zss_editor.updateOffset = function() {
     

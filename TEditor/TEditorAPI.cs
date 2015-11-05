@@ -8,8 +8,6 @@ namespace TEditor
 		Func<string, Task<string>> _javaScriptEvaluatFuncWithResult;
 		Action<string> _javaScriptEvaluatFunc;
 
-		bool _platformIsDroid = false;
-
 		public void SetJavaScriptEvaluatingFunction (Action<string> function)
 		{
 			if (function == null)
@@ -23,15 +21,18 @@ namespace TEditor
 				throw new ArgumentNullException ("Function cannot be null");
 			_javaScriptEvaluatFuncWithResult = function;
 		}
-		public void UpdateHTML ()
-		{
-			string html = this.InternalHTML;
-			string cleanedHTML = RemoveQuotesFromHTML (html);
-			string trigger = string.Format ("zss_editor.setHTML(\"{0}\");", cleanedHTML);
-			_javaScriptEvaluatFunc.Invoke (trigger);
-		}
+        public void UpdateHTML()
+        {
+            if (EditorLoaded)
+            {
+                string html = this.InternalHTML;
+                string cleanedHTML = RemoveQuotesFromHTML(html);
+                string trigger = string.Format("zss_editor.setHTML(\"{0}\");", cleanedHTML);
+                _javaScriptEvaluatFunc.Invoke(trigger);
+            }
+        }
 
-		public async Task<string> GetHTML ()
+        public async Task<string> GetHTML ()
 		{
 			string html = await _javaScriptEvaluatFuncWithResult ("zss_editor.getHTML();");
 			return html;
@@ -211,10 +212,14 @@ namespace TEditor
 		{
 			string trigger = @"zss_editor.setPlatformAsDroid();";
 			_javaScriptEvaluatFunc.Invoke (trigger);
-			_platformIsDroid = true;
 		}
+        public void SetPlatformAsUWP()
+        {
+            string trigger = @"zss_editor.setPlatformAsUWP();";
+            _javaScriptEvaluatFunc.Invoke(trigger);
+        }
 
-		public void QuickLink ()
+        public void QuickLink ()
 		{
 			string trigger = @"zss_editor.quickLink();";
 			_javaScriptEvaluatFunc.Invoke (trigger);
