@@ -98,7 +98,6 @@
     <AndroidResource Include="Resources\drawable\ZSSunlink.png" />
     <AndroidResource Include="Resources\drawable\ZSSunorderedlist.png" />
     <AndroidResource Include="Resources\drawable\ZSSviewsource.png" />
-    <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\drawable\MenuDiscard.png" />
     <AndroidResource Include="Resources\drawable\MenuSave.png" />
     <AndroidResource Include="Resources\menu\TopToolbarMenu.xml" />
