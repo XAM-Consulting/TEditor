@@ -6,9 +6,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{CC840A90-9DB6-4B07-B9DC-D12D2CCE506D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TEditor.iOS</RootNamespace>
+    <RootNamespace>TEditor</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>TEditor.iOS</AssemblyName>
+    <AssemblyName>TEditor</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,7 +65,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>anycpu</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
@@ -87,16 +87,14 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TEditor\TEditor.csproj">
-      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
-      <Name>TEditor</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\TEditorViewController.cs" />
+    <Compile Include="TEditorImplementation.cs" />
+    <Compile Include="..\TEditor\CrossTEditor.cs">
+      <Link>CrossTEditor.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="..\PopColorPicker.iOS.Shared\PopColorPicker.iOS.Shared.projitems" Label="Shared" Condition="Exists('..\PopColorPicker.iOS.Shared\PopColorPicker.iOS.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -198,5 +196,15 @@
     <BundleResource Include="..\PopColorPicker.iOS.Shared\Resources\color-picker-trash%402x.png">
       <Link>Resources\color-picker-trash%402x.png</Link>
     </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TEditor\TEditor.csproj">
+      <Project>{35D75E0C-AB1E-41E5-BB75-3344F3DDF01F}</Project>
+      <Name>TEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TEditor.Abstractions\TEditor.Abstractions.csproj">
+      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
+      <Name>TEditor.Abstractions</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

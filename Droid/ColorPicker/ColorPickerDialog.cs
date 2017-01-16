@@ -71,15 +71,15 @@ namespace MonoDroid.ColorPickers
         {
             var inflater = (LayoutInflater) Context.GetSystemService(Context.LayoutInflaterService);
 
-		    var layout = inflater.Inflate(Resource.Layout.dialog_color_picker, null);
+		    var layout = inflater.Inflate(TEditor.Resource.Layout.dialog_color_picker, null);
 
 		    SetContentView(layout);
 
-		    SetTitle(Resource.String.dialog_color_picker);
+		    SetTitle(TEditor.Resource.String.dialog_color_picker);
 
-            _colorPicker = layout.FindViewById<ColorPickerView>(Resource.Id.color_picker_view);
-            _oldColor = layout.FindViewById<ColorPickerPanelView>(Resource.Id.old_color_panel);
-            _newColor = layout.FindViewById<ColorPickerPanelView>(Resource.Id.new_color_panel);
+            _colorPicker = layout.FindViewById<ColorPickerView>(TEditor.Resource.Id.color_picker_view);
+            _oldColor = layout.FindViewById<ColorPickerPanelView>(TEditor.Resource.Id.old_color_panel);
+            _newColor = layout.FindViewById<ColorPickerPanelView>(TEditor.Resource.Id.new_color_panel);
 
             ((LinearLayout)_oldColor.Parent).SetPadding(
                 (int) Math.Round(_colorPicker.DrawingOffset), 
@@ -102,12 +102,12 @@ namespace MonoDroid.ColorPickers
 
         public void OnClick(View v)
         {
-			if (v.Id == Resource.Id.new_color_panel) {
+			if (v.Id == TEditor.Resource.Id.new_color_panel) {
 				if (ColorChanged != null)
 					ColorChanged(this, new ColorChangedEventArgs { Color = _newColor.Color });
 			}
 
-			if (v.Id == Resource.Id.old_color_panel) {
+			if (v.Id == TEditor.Resource.Id.old_color_panel) {
 				if (ColorChanged != null)
 					ColorChanged(this, new ColorChangedEventArgs { Color = _oldColor.Color });
 			}

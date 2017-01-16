@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TEditor.Droid.LinearLayoutDetectsSoftKeyboard xmlns:android="http://schemas.android.com/apk/res/android"
+<TEditor.LinearLayoutDetectsSoftKeyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/RootRelativeLayout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
@@ -8,7 +8,7 @@
         android:id="@+id/TopToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <TEditor.Droid.TEditorWebView
+    <TEditor.TEditorWebView
         android:id="@+id/EditorWebView"
         android:layout_marginTop="0dp"
         android:background="@android:color/white"
@@ -33,4 +33,4 @@
                 android:layout_height="wrap_content" />
         </HorizontalScrollView>
     </LinearLayout>
-</TEditor.Droid.LinearLayoutDetectsSoftKeyboard>
+</TEditor.LinearLayoutDetectsSoftKeyboard>

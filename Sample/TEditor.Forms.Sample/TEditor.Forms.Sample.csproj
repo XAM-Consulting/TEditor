@@ -33,7 +33,6 @@
     <Compile Include="TEditor.Forms.Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TEditorHtmlView.cs" />
-    <Compile Include="ITEditorService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -50,6 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TEditor.Abstractions\TEditor.Abstractions.csproj">
+      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
+      <Name>TEditor.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TEditor\TEditor.csproj">
+      <Project>{35D75E0C-AB1E-41E5-BB75-3344F3DDF01F}</Project>
+      <Name>TEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
 </Project>

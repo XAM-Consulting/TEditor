@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using Foundation;
 using PopColorPicker.iOS;
 using System.Threading.Tasks;
+using TEditor.Abstractions;
 
-namespace TEditor.iOS
+namespace TEditor
 {
 	public class TEditorViewDelegate : UIWebViewDelegate
 	{
-		TEditor _richTextEditor;
+		TEditor.Abstractions.TEditor _richTextEditor;
 
-		public TEditorViewDelegate (TEditor richTextEditor)
+		public TEditorViewDelegate (TEditor.Abstractions.TEditor richTextEditor)
 		{
 			_richTextEditor = richTextEditor;
 		}
@@ -38,7 +39,7 @@ namespace TEditor.iOS
 	[Foundation.Register ("TEditorViewController")]
 	public sealed class TEditorViewController : UIViewController
 	{
-		TEditor _richTextEditor;
+		TEditor.Abstractions.TEditor _richTextEditor;
 		UIWebView _webView;
 		UIScrollView _toolbarScroll;
 		UIToolbar _toolbar;
@@ -51,7 +52,7 @@ namespace TEditor.iOS
 
 		public TEditorViewController () : base ()
 		{
-			_richTextEditor = new TEditor ();
+			_richTextEditor = new TEditor.Abstractions.TEditor ();
 			_richTextEditor.SetJavaScriptEvaluatingFunction ((input) => {				
 				_webView.EvaluateJavascript (input);				 
 			});	

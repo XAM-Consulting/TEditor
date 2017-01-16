@@ -7,9 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using TEditor.Droid;
 using Xamarin.Forms;
-using TEditorForms.Droid;
 
 namespace TEditor.Forms.Sample.Droid
 {
@@ -24,19 +22,19 @@ namespace TEditor.Forms.Sample.Droid
 			LoadApplication (new App ());		
 		}			
 
-		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
-		{
-			base.OnActivityResult (requestCode, resultCode, data);
-			if (resultCode == Result.Ok) {
-				if (data != null) {
-					string html = data.GetStringExtra ("HTMLString");
-					var editor = (DependencyService.Get<ITEditorService> (DependencyFetchTarget.GlobalInstance) as TEditorService);
-					if (editor != null) {
-						editor.TaskResult.SetResult (html);
-					}
-				}
-			}
-		}
+		//protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
+		//{
+		//	base.OnActivityResult (requestCode, resultCode, data);
+		//	if (resultCode == Result.Ok) {
+		//		if (data != null) {
+		//			string html = data.GetStringExtra ("HTMLString");
+		//			var editor = (DependencyService.Get<ITEditorService> (DependencyFetchTarget.GlobalInstance) as TEditorService);
+		//			if (editor != null) {
+		//				editor.TaskResult.SetResult (html);
+		//			}
+		//		}
+		//	}
+		//}
 	}
 }
 

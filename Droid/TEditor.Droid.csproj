@@ -6,13 +6,13 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{E24263C8-85D4-4DFF-9322-0A763937026E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TEditor.Droid</RootNamespace>
+    <RootNamespace>TEditor</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>TEditor.Droid</AssemblyName>
+    <AssemblyName>TEditor</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,10 +41,16 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Xamarin.Android.Support.v4">
-      <HintPath>..\packages\Xamarin.Android.Support.v4.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.v7.AppCompat">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +59,18 @@
     <Compile Include="Controls\TEditorActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Controls\LinearLayoutDetectsSoftKeyboard.cs" />
+    <Compile Include="TEditorImplementation.cs" />
+    <Compile Include="..\TEditor\CrossTEditor.cs">
+      <Link>CrossTEditor.cs</Link>
+    </Compile>
+    <Compile Include="ColorPicker\RoundColorPickerDialog.cs" />
+    <Compile Include="ColorPicker\RoundColorPickerView.cs" />
+    <Compile Include="ColorPicker\ColorChangedEventArgs.cs" />
+    <Compile Include="ColorPicker\ColorPickerPanelView.cs" />
+    <Compile Include="ColorPicker\ColorPickerView.cs" />
+    <Compile Include="ColorPicker\ColorUtils.cs" />
+    <Compile Include="ColorPicker\ColorPickerDialog.cs" />
+    <Compile Include="ColorPicker\AlphaPatternDrawable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -102,21 +120,24 @@
     <AndroidResource Include="Resources\drawable\MenuSave.png" />
     <AndroidResource Include="Resources\menu\TopToolbarMenu.xml" />
     <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\layout\dialog_color_picker.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Resources\drawable\" />
     <Folder Include="Resources\menu\" />
+    <Folder Include="ColorPicker\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TEditor\TEditor.csproj">
-      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
+      <Project>{35D75E0C-AB1E-41E5-BB75-3344F3DDF01F}</Project>
       <Name>TEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MonoDroid.ColorPickers\MonoDroid.ColorPickers.csproj">
-      <Project>{4FBCBB3F-498C-484A-B043-EDC7FD98FE1E}</Project>
-      <Name>MonoDroid.ColorPickers</Name>
+    <ProjectReference Include="..\TEditor.Abstractions\TEditor.Abstractions.csproj">
+      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
+      <Name>TEditor.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
 </Project>

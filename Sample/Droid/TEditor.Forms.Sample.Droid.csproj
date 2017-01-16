@@ -86,7 +86,6 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TEditorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -106,17 +105,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\TEditor.Forms.Sample\TEditor.Forms.Sample.csproj">
-      <Project>{2F01342A-33CA-4E29-AE4D-F6A13226327F}</Project>
-      <Name>TEditor.Forms.Sample</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Droid\TEditor.Droid.csproj">
       <Project>{E24263C8-85D4-4DFF-9322-0A763937026E}</Project>
       <Name>TEditor.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MonoDroid.ColorPickers\MonoDroid.ColorPickers.csproj">
-      <Project>{4FBCBB3F-498C-484A-B043-EDC7FD98FE1E}</Project>
-      <Name>MonoDroid.ColorPickers</Name>
+    <ProjectReference Include="..\TEditor.Forms.Sample\TEditor.Forms.Sample.csproj">
+      <Project>{2F01342A-33CA-4E29-AE4D-F6A13226327F}</Project>
+      <Name>TEditor.Forms.Sample</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

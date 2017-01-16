@@ -115,7 +115,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="TEditorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
@@ -123,17 +122,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\TEditor.Forms.Sample\TEditor.Forms.Sample.csproj">
-      <Project>{2F01342A-33CA-4E29-AE4D-F6A13226327F}</Project>
-      <Name>TEditor.Forms.Sample</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\iOS\TEditor.iOS.csproj">
       <Project>{CC840A90-9DB6-4B07-B9DC-D12D2CCE506D}</Project>
       <Name>TEditor.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TEditor\TEditor.csproj">
-      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
-      <Name>TEditor</Name>
+    <ProjectReference Include="..\TEditor.Forms.Sample\TEditor.Forms.Sample.csproj">
+      <Project>{2F01342A-33CA-4E29-AE4D-F6A13226327F}</Project>
+      <Name>TEditor.Forms.Sample</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
