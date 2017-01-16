@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>TEditor</id>
+    <version>1.0.0</version>
+    <title>TEditor</title>
+    <authors>Michael Ridland @ XAM Consulting</authors>
+    <owners>Michael Ridland @ XAM Consulting</owners>
+    <projectUrl>https://github.com/XAM-Consulting/TEditor</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Awesome HTML editor in Xamarin.Forms</description>
+    <tags>Xamarin, Xamarin.Forms, TEditor</tags>
+    <releaseNotes>
+1.0.0
+[feature] Support Android and iOS in Xamarin.Forms
+    </releaseNotes>
+  </metadata>
+  <files>
+    <file src="TEditor\bin\Release\TEditor*.*" target="lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10" />
+    <file src="iOS\bin\Release\TEditor*.*" target="lib\Xamarin.iOS10" />
+    <file src="Droid\bin\Release\TEditor*.*" target="lib\MonoAndroid10" />
+    <file src="Droid\bin\Release\MonoDroid.ColorPickers*.*" target="lib\MonoAndroid10" />
+  </files>
+</package>

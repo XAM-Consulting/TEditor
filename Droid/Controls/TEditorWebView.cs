@@ -38,11 +38,6 @@ namespace TEditor.Droid
 			return true;
 		}
 
-		public override void OnReceivedError (WebView view, ClientError errorCode, string description, string failingUrl)
-		{
-			base.OnReceivedError (view, errorCode, description, failingUrl);
-		}
-
 		public override void OnPageFinished (WebView view, string url)
 		{
 			_richTextEditor.EditorLoaded = true;
