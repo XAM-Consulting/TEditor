@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TEditor</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>TEditor</title>
     <authors>Michael Ridland @ XAM Consulting</authors>
     <owners>Michael Ridland @ XAM Consulting</owners>
@@ -12,7 +12,10 @@
     <tags>Xamarin, Xamarin.Forms, TEditor</tags>
     <releaseNotes>
 1.0.0
-[feature] Support Android and iOS in Xamarin.Forms
+[feature] Support Android and iOS in Xamarin.Forms.
+
+1.0.1
+[feature] Add change title feature.
     </releaseNotes>
   </metadata>
   <files>

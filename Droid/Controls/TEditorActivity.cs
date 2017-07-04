@@ -29,7 +29,7 @@ namespace TEditor
             SetContentView(Resource.Layout.TEditorActivity);
 
             _topToolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.TopToolbar);
-            _topToolBar.Title = "HTML Editor";
+            _topToolBar.Title = CrossTEditor.PageTitle;
             _topToolBar.InflateMenu(Resource.Menu.TopToolbarMenu);
             _topToolBar.MenuItemClick += async (sender, e) =>
             {

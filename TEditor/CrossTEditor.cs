@@ -50,5 +50,9 @@ namespace TEditor
                 Implementation = new Lazy<ITEditor>(() => CreateTEditor(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
             }
         }
+
+        public static string PageTitle { get; set; } = "HTML Editor";
+        public static string SaveText { get; set; } = "Save";
+        public static string CancelText { get; set; } = "Cancel";
     }
 }

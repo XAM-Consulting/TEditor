@@ -28,8 +28,7 @@ namespace TEditor.Forms.Sample
 
         async Task ShowTEditor()
         {
-
-            string html = await CrossTEditor.Current.ShowTEditor("<!-- This is an HTML comment --><p>This is a test of the <strong>TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
+            string html = await CrossTEditor.Current.ShowTEditor("<!-- This is an HTML comment --><p>This is a test of the <strong style=\"font-size:20px\">TEditor</strong> by <a title=\"XAM consulting\" href=\"http://www.xam-consulting.com\">XAM consulting</a></p>");
             if (!string.IsNullOrEmpty(html))
                 _displayWebView.Source = new HtmlWebViewSource() { Html = html };
 
