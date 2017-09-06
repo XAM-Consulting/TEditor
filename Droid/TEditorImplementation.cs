@@ -9,9 +9,9 @@ namespace TEditor
     public class TEditorImplementation : BaseTEditor
     {
         public static ToolbarBuilder ToolbarBuilder = null;
-        public override Task<string> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null)
+        public override Task<TEditorResponse> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null)
         {
-            var result = new TaskCompletionSource<string>();
+            var result = new TaskCompletionSource<TEditorResponse>();
 
             var tActivity = new Intent(Application.Context, typeof(TEditorActivity));
             ToolbarBuilder = toolbarBuilder;
@@ -24,10 +24,10 @@ namespace TEditor
                 TEditorActivity.SetOutput = null;
                 if (res)
                 {
-                    result.SetResult(resStr);
+                    result.SetResult(new TEditorResponse() { IsSave = true, HTML = resStr});
                 }
                 else
-                    result.SetResult(string.Empty);
+                    result.SetResult(new TEditorResponse() { IsSave = false, HTML = string.Empty });
             };
             Application.Context.StartActivity(tActivity);
             return result.Task;
