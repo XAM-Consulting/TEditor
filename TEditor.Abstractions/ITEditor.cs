@@ -5,6 +5,6 @@ namespace TEditor.Abstractions
 {
     public interface ITEditor : IDisposable
     {
-        Task<string> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null);
+        Task<TEditorResponse> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null);
     }
 }

@@ -12,9 +12,9 @@ Available on Nuget:[https://www.nuget.org/packages/TEditor/](https://www.nuget.o
 
 Call single line from any project or PCL, make sure it must be in UIThread.
 
-            string html = await CrossTEditor.Current.ShowTEditor("<p>XAM consulting</p>");
-            if (!string.IsNullOrEmpty(html))
-                _displayWebView.Source = new HtmlWebViewSource() { Html = html };
+            TEditorResponse response = await CrossTEditor.Current.ShowTEditor("<p>XAM consulting</p>");
+            if (!string.IsNullOrEmpty(response.HTML))
+                _displayWebView.Source = new HtmlWebViewSource() { Html = response.HTML };
     		
 If user click save it will return html as string. If user click cancel, it return empty string.
 
@@ -22,7 +22,7 @@ If user click save it will return html as string. If user click cancel, it retur
 TEditor allow user to custom toolbar, you can add features when you need it, like
 
          var toolbar = new ToolbarBuilder().AddBasic().AddH1();
-         string html = await CrossTEditor.Current.ShowTEditor("<p>XAM consulting</p>", toolbar);
+         TEditorResponse response = await CrossTEditor.Current.ShowTEditor("<p>XAM consulting</p>", toolbar);
 
 Also, you can add a new ToolbarItem with new icon like
 

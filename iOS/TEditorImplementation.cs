@@ -7,9 +7,9 @@ namespace TEditor
 {
     public class TEditorImplementation : BaseTEditor
     {
-        public override Task<string> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null)
+        public override Task<TEditorResponse> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null)
         {
-            TaskCompletionSource<string> taskRes = new TaskCompletionSource<string>();
+            TaskCompletionSource<TEditorResponse> taskRes = new TaskCompletionSource<TEditorResponse>();
             var tvc = new TEditorViewController();
             ToolbarBuilder builder = toolbarBuilder;
             if (toolbarBuilder == null)
@@ -29,13 +29,13 @@ namespace TEditor
             {
 				if (nav != null)
 					nav.PopViewController(true);
-				taskRes.SetResult(string.Empty);
+                taskRes.SetResult(new TEditorResponse() { IsSave = false, HTML = string.Empty});
             }), true);
             tvc.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(CrossTEditor.SaveText, UIBarButtonItemStyle.Done, async (item, args) =>
             {
                 if (nav != null)
                     nav.PopViewController(true);
-                taskRes.SetResult(await tvc.GetHTML());
+                taskRes.SetResult(new TEditorResponse() { IsSave = true, HTML = await tvc.GetHTML() });
             }), true);
 
             if (nav != null)

@@ -38,6 +38,7 @@
     <Compile Include="TEditorToolbarItem.cs" />
     <Compile Include="ITEditor.cs" />
     <Compile Include="BaseTEditor.cs" />
+    <Compile Include="TEditorResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
