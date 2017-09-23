@@ -11,7 +11,7 @@ namespace TEditor
 {
     [Activity(Label = "TEditorActivity",
         WindowSoftInputMode = Android.Views.SoftInput.AdjustResize | Android.Views.SoftInput.StateHidden,
-        Theme = "@style/Theme.AppCompat.NoActionBar.FullScreen")]
+        Theme = "@style/Theme.AppCompat.NoActionBar.FullScreen", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class TEditorActivity : Activity
     {
         const int ToolbarFixHeight = 60;
