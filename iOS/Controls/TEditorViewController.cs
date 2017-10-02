@@ -322,20 +322,27 @@ namespace TEditor
 
 		void KeyboardDidFrame (NSNotification note)
 		{
-			foreach (UIView possibleFormView in _webView.ScrollView.Subviews) {
-				if (possibleFormView.Description.Contains ("UIWebBrowserView")) {
+            int SystemVersion = Convert.ToInt16(UIDevice.CurrentDevice.SystemVersion.Split('.')[0]);
+            if (SystemVersion < 11) {
+				foreach (UIView possibleFormView in _webView.ScrollView.Subviews)
+				{
+					if (possibleFormView.Description.Contains("UIWebBrowserView"))
+					{
 
-					var response = possibleFormView as UIResponder;
-					if (response != null) {
-						var inputAccessoryView = response.InputAccessoryView;
-						if (inputAccessoryView != null) {
-							_keyboardHeight -= inputAccessoryView.Frame.Height;
-							inputAccessoryView.RemoveFromSuperview ();
+						var response = possibleFormView as UIResponder;
+						if (response != null)
+						{
+							var inputAccessoryView = response.InputAccessoryView;
+							if (inputAccessoryView != null)
+							{
+								_keyboardHeight -= inputAccessoryView.Frame.Height;
+								inputAccessoryView.RemoveFromSuperview();
+							}
 						}
+						break;
 					}
-					break;
 				}
-			}
+            }			
 		}
 	}
 }
