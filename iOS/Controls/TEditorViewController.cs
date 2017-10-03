@@ -322,8 +322,8 @@ namespace TEditor
 
 		void KeyboardDidFrame (NSNotification note)
 		{
-            int SystemVersion = Convert.ToInt16(UIDevice.CurrentDevice.SystemVersion.Split('.')[0]);
-            if (SystemVersion < 11) {
+			int SystemVersion = Convert.ToInt16(UIDevice.CurrentDevice.SystemVersion.Split('.')[0]);
+			if (SystemVersion < 11) {
 				foreach (UIView possibleFormView in _webView.ScrollView.Subviews)
 				{
 					if (possibleFormView.Description.Contains("UIWebBrowserView"))
@@ -342,7 +342,7 @@ namespace TEditor
 						break;
 					}
 				}
-            }			
+			}			
 		}
 	}
 }
