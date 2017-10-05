@@ -95,6 +95,7 @@
     <Compile Include="..\TEditor\CrossTEditor.cs">
       <Link>CrossTEditor.cs</Link>
     </Compile>
+    <Compile Include="HideFormAccessoryBar.cs" />
   </ItemGroup>
   <Import Project="..\PopColorPicker.iOS.Shared\PopColorPicker.iOS.Shared.projitems" Label="Shared" Condition="Exists('..\PopColorPicker.iOS.Shared\PopColorPicker.iOS.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

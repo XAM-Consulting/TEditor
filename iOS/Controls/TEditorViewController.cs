@@ -84,6 +84,7 @@ namespace TEditor
 			_webView.ScrollView.Bounces = false;
 
 			this.Add (_webView);
+            HideFormAccessoryBar.SetHideFormAccessoryBar(true);
 		}
 
 		void StyleScrollView ()
@@ -251,14 +252,12 @@ namespace TEditor
 			_richTextEditor.UpdateHTML ();
 		}
 
-		NSObject _keyboardDidFrameToken;
 		NSObject _keyboardWillShowToken;
 		NSObject _keyboardWillHideToken;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			_keyboardDidFrameToken = NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.DidChangeFrameNotification, KeyboardDidFrame);
 			_keyboardWillShowToken = NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.WillShowNotification, KeyboardWillShowOrHide);
 			_keyboardWillHideToken = NSNotificationCenter.DefaultCenter.AddObserver (UIKeyboard.WillHideNotification, KeyboardWillShowOrHide);
 		}
@@ -267,7 +266,6 @@ namespace TEditor
 		{
 			base.ViewWillDisappear (animated);
 
-			NSNotificationCenter.DefaultCenter.RemoveObserver (_keyboardDidFrameToken);
 			NSNotificationCenter.DefaultCenter.RemoveObserver (_keyboardWillShowToken);
 			NSNotificationCenter.DefaultCenter.RemoveObserver (_keyboardWillHideToken);
 		}
@@ -317,24 +315,6 @@ namespace TEditor
 					_webView.Frame = editorFrame;
 
 				}, null);
-			}
-		}
-
-		void KeyboardDidFrame (NSNotification note)
-		{
-			foreach (UIView possibleFormView in _webView.ScrollView.Subviews) {
-				if (possibleFormView.Description.Contains ("UIWebBrowserView")) {
-
-					var response = possibleFormView as UIResponder;
-					if (response != null) {
-						var inputAccessoryView = response.InputAccessoryView;
-						if (inputAccessoryView != null) {
-							_keyboardHeight -= inputAccessoryView.Frame.Height;
-							inputAccessoryView.RemoveFromSuperview ();
-						}
-					}
-					break;
-				}
 			}
 		}
 	}
