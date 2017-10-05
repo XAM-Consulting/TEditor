@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TEditor</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>TEditor</title>
     <authors>XAM Consulting</authors>
     <owners>XAM Consulting</owners>
@@ -19,6 +19,9 @@
 
 1.0.2
 [feature] Add discard change feature.
+
+1.0.3
+[fix] iOS 11 crash issue.
     </releaseNotes>
   </metadata>
   <files>
