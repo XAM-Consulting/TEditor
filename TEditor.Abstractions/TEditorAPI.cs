@@ -63,6 +63,12 @@ namespace TEditor.Abstractions
             _javaScriptEvaluatFunc.Invoke(trigger);
         }
 
+        public void Focus()
+        {
+            string trigger = @"zss_editor.focusEditor();";
+            _javaScriptEvaluatFunc.Invoke(trigger);
+        }
+
         public void RemoveFormat()
         {
             string trigger = @"zss_editor.removeFormating();";

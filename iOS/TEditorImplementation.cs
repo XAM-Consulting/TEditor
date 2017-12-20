@@ -7,7 +7,7 @@ namespace TEditor
 {
     public class TEditorImplementation : BaseTEditor
     {
-        public override Task<TEditorResponse> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null)
+        public override Task<TEditorResponse> ShowTEditor(string html, ToolbarBuilder toolbarBuilder = null, bool autoFocusInput = false)
         {
             TaskCompletionSource<TEditorResponse> taskRes = new TaskCompletionSource<TEditorResponse>();
             var tvc = new TEditorViewController();
@@ -16,6 +16,7 @@ namespace TEditor
                 builder = new ToolbarBuilder().AddAll();
             tvc.BuildToolbar(builder);
             tvc.SetHTML(html);
+            tvc.SetAutoFocusInput(autoFocusInput);
             tvc.Title = CrossTEditor.PageTitle;
 
             UINavigationController nav = null;

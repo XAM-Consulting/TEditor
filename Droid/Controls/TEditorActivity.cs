@@ -59,6 +59,8 @@ namespace TEditor
             string htmlString = Intent.GetStringExtra("HTMLString") ?? "<p></p>";
             _editorWebView.SetHTML(htmlString);
 
+            bool autoFocusInput = Intent.GetBooleanExtra("AutoFocusInput", false);
+            _editorWebView.SetAutoFocusInput(autoFocusInput);
         }
 
         protected override void Dispose(bool disposing)

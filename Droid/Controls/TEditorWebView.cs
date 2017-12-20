@@ -46,6 +46,9 @@ namespace TEditor
                 _richTextEditor.InternalHTML = "";
             _richTextEditor.UpdateHTML();
 
+            if (_richTextEditor.AutoFocusInput)
+                _richTextEditor.Focus();
+
             base.OnPageFinished(view, url);
         }
     }
@@ -174,6 +177,10 @@ namespace TEditor
             return await _richTextEditor.GetHTML();
         }
 
+        public void SetAutoFocusInput(bool autoFocusInput)
+        {
+            _richTextEditor.AutoFocusInput = autoFocusInput;
+        }
     }
 }
 
