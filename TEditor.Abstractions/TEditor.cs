@@ -11,6 +11,7 @@ namespace TEditor.Abstractions
             EditorLoaded = false;
             FormatHTML = false;
             InternalHTML = string.Empty;
+            AutoFocusInput = false;
         }
 
         public string InternalHTML { get; set; }
@@ -18,6 +19,8 @@ namespace TEditor.Abstractions
         public bool EditorLoaded { get; set; }
 
         public bool FormatHTML { get; set; }
+
+        public bool AutoFocusInput { get; set; }
 
         public string LoadResources()
         {

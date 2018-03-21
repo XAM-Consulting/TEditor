@@ -33,6 +33,9 @@ namespace TEditor
 			if (string.IsNullOrEmpty (_richTextEditor.InternalHTML))
 				_richTextEditor.InternalHTML = "";
 			_richTextEditor.UpdateHTML ();
+
+            if (_richTextEditor.AutoFocusInput)
+                _richTextEditor.Focus();
 		}
 	}
 
@@ -64,9 +67,7 @@ namespace TEditor
 					});
 					return res;
 				});
-				
 			});
-
 		}
 
 		void StyleWebView ()
@@ -232,6 +233,11 @@ namespace TEditor
 		{
 			return await _richTextEditor.GetHTML ();
 		}
+
+        public void SetAutoFocusInput(bool autoFocusInput)
+        {
+            _richTextEditor.AutoFocusInput = autoFocusInput;
+        }
 
 		public override void ViewDidLoad ()
 		{
